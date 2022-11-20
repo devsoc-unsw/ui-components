@@ -14,6 +14,7 @@ specifiers:
   '@types/react-dom': 18.0.8
   '@vitejs/plugin-react': 2.2.0
   babel-loader: 9.1.0
+  prettier: 2.7.1
   react: 18.2.0
   react-dom: 18.2.0
   typescript: 4.9.3
@@ -37,6 +38,7 @@ devDependencies:
   '@types/react-dom': 18.0.8
   '@vitejs/plugin-react': 2.2.0_vite@3.2.3
   babel-loader: 9.1.0_@babel+core@7.20.2
+  prettier: 2.7.1
   typescript: 4.9.3
   vite: 3.2.3
 
@@ -9162,6 +9164,12 @@ packages:
 
   /prettier/2.3.0:
     resolution: {integrity: sha512-kXtO4s0Lz/DW/IJ9QdWhAf7/NmPWQXkFr/r/WkR3vyI+0v8amTDxiaQSLzs8NBlytfLWX/7uQUMIW677yLKl4w==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true
+
+  /prettier/2.7.1:
+    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
