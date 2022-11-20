@@ -3,9 +3,9 @@ import React from 'react';
 import { Button } from './Button';
 import './header.css';
 
-type User = {
+interface User {
   name: string;
-};
+}
 
 interface HeaderProps {
   user?: User;
@@ -37,7 +37,7 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }: HeaderProps
         <h1>Acme</h1>
       </div>
       <div>
-        {user ? (
+        {(user != null) ? (
           <>
             <span className='welcome'>
               Welcome, <b>{user.name}</b>!
