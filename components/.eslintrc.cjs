@@ -19,7 +19,8 @@ module.exports = {
   },
   plugins: [
     'react',
-    '@typescript-eslint'
+    '@typescript-eslint',
+    'simple-import-sort'
   ],
   settings: {
     react: {version: 'detect'}
@@ -40,7 +41,10 @@ module.exports = {
     semi: [
       'error',
       'always'
-    ]
+    ],
+    'react/react-in-jsx-scope': 'off',
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error'
   }
 };
 
