@@ -1,7 +1,8 @@
 {
   "scripts": {
     "build": "turbo run build",
-    "lint": "turbo run lint"
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix"
   },
   "devDependencies": {
     "turbo": "1.6.3"
