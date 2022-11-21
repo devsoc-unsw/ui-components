@@ -27,7 +27,7 @@ export default defineConfig((configEnv) => ({
     lib: {
       entry: resolve('src', 'index.ts'),
       name: '@csesoc/ui-components',
-      formats: ['es'],
+      formats: ['es', 'umd'],
       fileName: (format) => `csesoc-ui-components.${format}.js`,
     },
     rollupOptions: {
