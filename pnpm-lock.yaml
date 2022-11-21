@@ -57,31 +57,31 @@ importers:
 
   packages/components:
     specifiers:
-      '@types/react': 18.0.24
-      '@types/react-dom': 18.0.8
+      '@types/react': 18.0.25
+      '@types/react-dom': 18.0.9
       '@vitejs/plugin-react': 2.2.0
       eslint: 8.28.0
       eslint-config-custom: workspace:*
       prettier: 2.7.1
       tsconfig: workspace:*
       typescript: 4.6.4
-      vite: 3.2.3
+      vite: 3.2.4
       vite-plugin-dts: 1.7.1
       vite-plugin-linter: 1.2.0
       vite-tsconfig-paths: 3.6.0
     devDependencies:
-      '@types/react': 18.0.24
-      '@types/react-dom': 18.0.8
-      '@vitejs/plugin-react': 2.2.0_vite@3.2.3
+      '@types/react': 18.0.25
+      '@types/react-dom': 18.0.9
+      '@vitejs/plugin-react': 2.2.0_vite@3.2.4
       eslint: 8.28.0
       eslint-config-custom: link:../eslint-config-custom
       prettier: 2.7.1
       tsconfig: link:../tsconfig
       typescript: 4.6.4
-      vite: 3.2.3
-      vite-plugin-dts: 1.7.1_vite@3.2.3
+      vite: 3.2.4
+      vite-plugin-dts: 1.7.1_vite@3.2.4
       vite-plugin-linter: 1.2.0
-      vite-tsconfig-paths: 3.6.0_vite@3.2.3
+      vite-tsconfig-paths: 3.6.0_vite@3.2.4
 
   packages/eslint-config-custom:
     specifiers: {}
@@ -3651,24 +3651,10 @@ packages:
     resolution: {integrity: sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==}
     dev: true
 
-  /@types/react-dom/18.0.8:
-    resolution: {integrity: sha512-C3GYO0HLaOkk9dDAz3Dl4sbe4AKUGTCfFIZsz3n/82dPNN8Du533HzKatDxeUYWu24wJgMP1xICqkWk1YOLOIw==}
-    dependencies:
-      '@types/react': 18.0.24
-    dev: true
-
   /@types/react-dom/18.0.9:
     resolution: {integrity: sha512-qnVvHxASt/H7i+XG1U1xMiY5t+IHcPGUK7TDMDzom08xa7e86eCeKOiLZezwCKVxJn6NEiiy2ekgX8aQssjIKg==}
     dependencies:
       '@types/react': 18.0.25
-    dev: true
-
-  /@types/react/18.0.24:
-    resolution: {integrity: sha512-wRJWT6ouziGUy+9uX0aW4YOJxAY0bG6/AOk5AW5QSvZqI7dk6VBIbXvcVgIw/W5Jrl24f77df98GEKTJGOLx7Q==}
-    dependencies:
-      '@types/prop-types': 15.7.5
-      '@types/scheduler': 0.16.2
-      csstype: 3.1.1
     dev: true
 
   /@types/react/18.0.25:
@@ -3738,24 +3724,6 @@ packages:
     resolution: {integrity: sha512-T8Yc9wt/5LbJyCaLiHPReJa0kApcIgJ7Bn735GjItUfh08Z1pJvu8QZqb9s+mMvKV6WUQRV7K2R46YbjMXTTJw==}
     dependencies:
       '@types/yargs-parser': 21.0.0
-    dev: true
-
-  /@vitejs/plugin-react/2.2.0_vite@3.2.3:
-    resolution: {integrity: sha512-FFpefhvExd1toVRlokZgxgy2JtnBOdp4ZDsq7ldCWaqGSGn9UhWMAVm/1lxPL14JfNS5yGz+s9yFrQY6shoStA==}
-    engines: {node: ^14.18.0 || >=16.0.0}
-    peerDependencies:
-      vite: ^3.0.0
-    dependencies:
-      '@babel/core': 7.20.2
-      '@babel/plugin-transform-react-jsx': 7.19.0_@babel+core@7.20.2
-      '@babel/plugin-transform-react-jsx-development': 7.18.6_@babel+core@7.20.2
-      '@babel/plugin-transform-react-jsx-self': 7.18.6_@babel+core@7.20.2
-      '@babel/plugin-transform-react-jsx-source': 7.19.6_@babel+core@7.20.2
-      magic-string: 0.26.7
-      react-refresh: 0.14.0
-      vite: 3.2.3
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /@vitejs/plugin-react/2.2.0_vite@3.2.4:
@@ -11761,7 +11729,7 @@ packages:
       vfile-message: 2.0.4
     dev: true
 
-  /vite-plugin-dts/1.7.1_vite@3.2.3:
+  /vite-plugin-dts/1.7.1_vite@3.2.4:
     resolution: {integrity: sha512-2oGMnAjcrZN7jM1TloiS1b1mCn42s3El04ix2RFhId5P1WfMigF8WAwsqT6a6jk0Yso8t7AeZsBkkxYShR0hBQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -11775,7 +11743,7 @@ packages:
       fs-extra: 10.1.0
       kolorist: 1.6.0
       ts-morph: 16.0.0
-      vite: 3.2.3
+      vite: 3.2.4
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -11794,7 +11762,7 @@ packages:
       - supports-color
     dev: true
 
-  /vite-tsconfig-paths/3.6.0_vite@3.2.3:
+  /vite-tsconfig-paths/3.6.0_vite@3.2.4:
     resolution: {integrity: sha512-UfsPYonxLqPD633X8cWcPFVuYzx/CMNHAjZTasYwX69sXpa4gNmQkR0XCjj82h7zhLGdTWagMjC1qfb9S+zv0A==}
     peerDependencies:
       vite: '>2.0.0-0'
@@ -11803,42 +11771,9 @@ packages:
       globrex: 0.1.2
       recrawl-sync: 2.2.3
       tsconfig-paths: 4.1.0
-      vite: 3.2.3
+      vite: 3.2.4
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /vite/3.2.3:
-    resolution: {integrity: sha512-h8jl1TZ76eGs3o2dIBSsvXDLb1m/Ec1iej8ZMdz+PsaFUsftZeWe2CZOI3qogEsMNaywc17gu0q6cQDzh/weCQ==}
-    engines: {node: ^14.18.0 || >=16.0.0}
-    hasBin: true
-    peerDependencies:
-      '@types/node': '>= 14'
-      less: '*'
-      sass: '*'
-      stylus: '*'
-      sugarss: '*'
-      terser: ^5.4.0
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-      less:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      terser:
-        optional: true
-    dependencies:
-      esbuild: 0.15.14
-      postcss: 8.4.19
-      resolve: 1.22.1
-      rollup: 2.79.1
-    optionalDependencies:
-      fsevents: 2.3.2
     dev: true
 
   /vite/3.2.4:
