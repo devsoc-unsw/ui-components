@@ -1,46 +1,10 @@
 {
-  "name": "-csesoc-ui-components",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "format:check": "prettier --check 'src/**/*.{ts,tsx,mdx}'",
-    "format": "prettier --write src/**/*.{ts,tsx,mdx}",
-    "lint": "eslint --ext src/**/*{.ts,.tsx,.mdx}",
-    "lint:fix": "eslint --ext src/**/*{.ts,.tsx,.mdx} --fix"
-  },
-  "dependencies": {
-    "@stitches/react": "^1.2.8",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix"
   },
   "devDependencies": {
-    "@babel/core": "7.20.2",
-    "@storybook/addon-actions": "6.5.13",
-    "@storybook/addon-essentials": "6.5.13",
-    "@storybook/addon-interactions": "6.5.13",
-    "@storybook/addon-links": "6.5.13",
-    "@storybook/builder-vite": "0.2.5",
-    "@storybook/react": "6.5.13",
-    "@storybook/testing-library": "0.0.13",
-    "@types/react": "18.0.25",
-    "@types/react-dom": "18.0.9",
-    "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "@vitejs/plugin-react": "2.2.0",
-    "babel-loader": "9.1.0",
-    "eslint": "^8.0.1",
-    "eslint-config-standard-with-typescript": "^23.0.0",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-n": "^15.0.0",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-react": "^7.31.11",
-    "prettier": "2.7.1",
-    "typescript": "*",
-    "vite": "3.2.4"
+    "turbo": "1.6.3"
   }
 }
