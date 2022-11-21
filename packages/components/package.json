@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "tsc": "tsc"
+    "format:check": "prettier --check 'src/**/*.{ts,tsx}'",
+    "format": "prettier --write src/**/*.{ts,tsx}"
   },
   "peerDependencies": {
     "react": ">=18.x",
@@ -18,12 +19,10 @@
   "devDependencies": {
     "@types/react": "18.0.24",
     "@types/react-dom": "18.0.8",
-    "@typescript-eslint/eslint-plugin": "5.43.0",
-    "@typescript-eslint/parser": "5.43.0",
     "@vitejs/plugin-react": "2.2.0",
-    "eslint": "^8.0.1",
-    "eslint-plugin-react": "7.31.11",
-    "eslint-plugin-simple-import-sort": "8.0.0",
+    "eslint": "8.28.0",
+    "eslint-config-custom": "workspace:*",
+    "prettier": "2.7.1",
     "tsconfig": "workspace:*",
     "typescript": "4.6.4",
     "vite": "3.2.3",

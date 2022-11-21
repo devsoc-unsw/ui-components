@@ -1,0 +1,14 @@
+{
+  "name": "eslint-config-custom",
+  "main": ".eslintrc.cjs",
+  "peerDependencies": {
+    "typescript": ">=4.x",
+    "eslint": ">=8.x"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "5.43.0",
+    "@typescript-eslint/parser": "5.43.0",
+    "eslint-plugin-react": "7.31.11",
+    "eslint-plugin-simple-import-sort": "8.0.0"
+  }
+}
