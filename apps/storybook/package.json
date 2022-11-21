@@ -41,6 +41,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.31.11",
     "prettier": "2.7.1",
+    "tsconfig": "workspace:*",
     "typescript": "*",
     "vite": "3.2.4"
   }
