@@ -17,21 +17,17 @@ export const darkTheme = {
 export const SidebarNav = styled('nav', {
   display: 'flex',
   flexDirection: 'column',
-  // position: 'fixed',
+  position: 'fixed',
+  top: 0,
+  left: 0,
   width: '290px',
-  height: '100vh',
+  height: '100%',
   '*': {
     margin: 0,
     boxSizing: 'border-box',
   },
   div: {
     width: '100%',
-  },
-  '#sidebar-profile-picture': {
-    width: '2rem',
-    aspectRatio: '1 / 1',
-    borderRadius: '100%',
-    filter: 'none',
   },
   fontFamily: 'Segoe UI, Helvetica, Arial, sans-serif',
   backgroundColor: '$$backgroundColor',
@@ -122,9 +118,16 @@ export const SidebarLink = styled('button', {
 export const SidebarFooter = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  gap: '1.5rem',
+  gap: '1.25rem',
   padding: '1.5rem 1rem',
-  marginTop: 'auto',
+  margin: 'auto 0 0',
+  textAlign: 'left',
+  '#sidebar-profile-picture': {
+    width: '2rem',
+    aspectRatio: '1 / 1',
+    borderRadius: '100%',
+    filter: 'none',
+  },
   img: {
     width: '1.5rem',
     filter: '$$filterIcon',
@@ -176,7 +179,7 @@ export const LogoutConfirmation = styled(Logout, {
 export const TermsAndConditions = styled('p', {
   fontSize: '12px',
   color: '#7A8797',
-  display: 'none',
+  lineHeight: '1rem',
   a: {
     color: '#5193F5',
   },
