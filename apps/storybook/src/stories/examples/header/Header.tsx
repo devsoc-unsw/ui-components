@@ -2,7 +2,7 @@ import './header.css';
 
 import React from 'react';
 
-import { Button } from './Button';
+import { Button } from '../button/Button';
 
 interface User {
   name: string;
