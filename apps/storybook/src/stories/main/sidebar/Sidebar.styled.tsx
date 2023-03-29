@@ -1,18 +1,72 @@
-import { styled } from '@stitches/react';
+import { createStitches, createTheme, defaultThemeMap, globalCss } from '@stitches/react';
 
-export const lightTheme = {
-  bg: '#F8F8F9',
-  text: '#323E4D',
-  secondary: '#EDEEF1',
-  border: '#DADEE2',
-};
+// Default colors aka Light Theme
+const { styled } = createStitches({
+  themeMap: {
+    ...defaultThemeMap,
+    filter: 'filters',
+  },
+  theme: {
+    colors: {
+      primary: '#F8F8F9',
+      secondary: '#EDEEF1',
+      tertiary: '#DADEE2',
+      accent: '#323E4D',
+      'warning-background': '#FCDADA',
+      'warning-text': '#EF4444',
+      'terms-and-copyright': '#7A8797',
+      link: '#5193F5',
+    },
+    fonts: {
+      display: 'TT Commons Pro Variable, Segoe UI, Arial, sans-serif',
+    },
+    filters: {
+      'filter-icon':
+        'brightness(0) saturate(100%) invert(21%) sepia(9%) saturate(1606%) hue-rotate(174deg) brightness(93%) contrast(87%)',
+      'filter-red':
+        'brightness(0) saturate(100%) invert(47%) sepia(71%) saturate(5831%) hue-rotate(340deg) brightness(101%) contrast(88%)',
+    },
+  },
+});
 
-export const darkTheme = {
-  bg: '#242C37',
-  secondary: '#323E4D',
-  text: '#EEF0F2',
-  border: '#404F63',
-};
+// Dark Theme
+export const darkTheme = createTheme('dark', {
+  colors: {
+    primary: '#242C37',
+    secondary: '#323E4D',
+    tertiary: '#404F63',
+    accent: '#EEF0F2',
+  },
+  filters: {
+    'filter-icon':
+      'brightness(0) saturate(100%) invert(88%) sepia(12%) saturate(34%) hue-rotate(170deg) brightness(108%) contrast(92%)',
+  },
+});
+
+// Global styles
+export const globalStyles = globalCss({
+  '@font-face': {
+    fontStyle: 'normal',
+    fontFamily: 'TT Commons Pro Variable',
+    fontDisplay: 'optional',
+    src: "url('apps/storybook/src/assets/fonts/TT_Commons_Pro_Variable.woff2') format('woff2')",
+  },
+  html: {
+    fontFamily: '$display',
+  },
+  '*, *::before, *::after': {
+    margin: 0,
+    padding: 0,
+    boxSizing: 'border-box',
+  },
+  div: {
+    width: '100%',
+  },
+  button: {
+    cursor: 'pointer',
+    fontSize: '16px',
+  },
+});
 
 export const SidebarNav = styled('nav', {
   display: 'flex',
@@ -21,36 +75,9 @@ export const SidebarNav = styled('nav', {
   top: 0,
   left: 0,
   width: '290px',
-  height: '100%',
-  '*': {
-    margin: 0,
-    boxSizing: 'border-box',
-  },
-  div: {
-    width: '100%',
-  },
-  fontFamily: 'Segoe UI, Helvetica, Arial, sans-serif',
-  backgroundColor: '$$backgroundColor',
-  variants: {
-    theme: {
-      dark: {
-        $$backgroundColor: darkTheme.bg,
-        $$textColor: darkTheme.text,
-        $$hoverBackgroundColor: darkTheme.secondary,
-        $$borderColor: darkTheme.border,
-        $$filterIcon:
-          'brightness(0) saturate(100%) invert(88%) sepia(12%) saturate(34%) hue-rotate(170deg) brightness(108%) contrast(92%)',
-      },
-      light: {
-        $$backgroundColor: lightTheme.bg,
-        $$textColor: lightTheme.text,
-        $$hoverBackgroundColor: lightTheme.secondary,
-        $$borderColor: lightTheme.border,
-        $$filterIcon:
-          'brightness(0) saturate(100%) invert(21%) sepia(9%) saturate(1606%) hue-rotate(174deg) brightness(93%) contrast(87%)',
-      },
-    },
-  },
+  minHeight: '100%',
+  maxHeight: '100vh',
+  backgroundColor: '$primary',
 });
 
 export const SidebarHeader = styled('div', {
@@ -61,12 +88,18 @@ export const SidebarHeader = styled('div', {
   textAlign: 'center',
   borderBottomWidth: '1px',
   borderBottomStyle: 'solid',
-  borderBottomColor: '$$borderColor',
+  borderBottomColor: '$tertiary',
+  img: {
+    width: '1.5rem',
+    aspectRatio: '1 / 1',
+    cursor: 'pointer',
+    filter: '$filter-icon',
+  },
   '#icon': {
     width: '2rem',
     height: 'auto',
-    filter: 'none',
     cursor: 'initial',
+    filter: 'none',
   },
   ':first-child': {
     marginRight: 'auto',
@@ -74,16 +107,12 @@ export const SidebarHeader = styled('div', {
   ':last-child': {
     marginLeft: 'auto',
   },
-  img: {
-    width: '1.5rem',
-    aspectRatio: '1 / 1',
-    filter: '$$filterIcon',
-    cursor: 'pointer',
-  },
   h1: {
     fontSize: '18px',
     fontWeight: 'bold',
-    color: '$$textColor',
+    color: '$accent',
+    margin: 0,
+    textAlign: 'center',
   },
 });
 
@@ -92,6 +121,11 @@ export const SidebarLinkList = styled('div', {
   flexDirection: 'column',
   gap: '.5rem',
   padding: '.5rem 1rem',
+  overflowY: 'auto',
+  /** Weird stuff on storybook */
+  'button + button': {
+    marginLeft: '0',
+  },
 });
 
 export const SidebarLink = styled('button', {
@@ -102,16 +136,17 @@ export const SidebarLink = styled('button', {
   border: 'none',
   outline: 'none',
   background: 'none',
-  color: '$$textColor',
+  color: '$accent',
   cursor: 'pointer',
   '&:hover, &:active, &:focus': {
     borderRadius: '.5rem',
-    backgroundColor: '$$hoverBackgroundColor',
+    outline: 'none',
+    backgroundColor: '$secondary',
   },
   img: {
     width: '1.5rem',
     aspectRatio: '1/1',
-    filter: '$$filterIcon',
+    filter: '$filter-icon',
   },
 });
 
@@ -119,7 +154,7 @@ export const SidebarFooter = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   gap: '1.25rem',
-  padding: '1.5rem 1rem',
+  padding: '1.5rem 1.25rem',
   margin: 'auto 0 0',
   textAlign: 'left',
   '#sidebar-profile-picture': {
@@ -130,7 +165,7 @@ export const SidebarFooter = styled('div', {
   },
   img: {
     width: '1.5rem',
-    filter: '$$filterIcon',
+    filter: '$filter-icon',
   },
 });
 
@@ -138,7 +173,7 @@ export const SidebarProfile = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  color: '$$textColor',
+  color: '$accent',
   gap: '.75rem',
   '& > div:first-child': {
     display: 'flex',
@@ -155,39 +190,38 @@ export const Logout = styled('button', {
   gap: '.75rem',
   borderRadius: '.5rem',
   background: 'none',
-  border: '1px solid $$borderColor',
+  border: '1px solid $tertiary',
   outline: 'none',
-  color: '$$textColor',
-  padding: '.5rem 0',
+  color: '$accent',
+  padding: '.625rem 0',
   cursor: 'pointer',
   img: {
     width: '1.5rem',
     aspectRatio: '1 / 1',
-    filter: '$$filterIcon',
+    filter: '$filter-icon',
   },
 });
 
 export const LogoutConfirmation = styled(Logout, {
-  background: '#FCDADA',
-  color: '#EF4444',
+  background: '$warning-background',
+  color: '$warning-text',
   img: {
-    filter:
-      'brightness(0) saturate(100%) invert(47%) sepia(71%) saturate(5831%) hue-rotate(340deg) brightness(101%) contrast(88%)',
+    filter: '$filter-red',
   },
 });
 
 export const TermsAndConditions = styled('p', {
   fontSize: '12px',
-  color: '#7A8797',
+  color: '$terms-and-copyright',
   lineHeight: '1rem',
   a: {
-    color: '#5193F5',
+    color: '$link',
   },
 });
 
 export const Copyright = styled('p', {
   fontSize: '12px',
-  color: '#7A8797',
+  color: '$terms-and-copyright',
 });
 
 export const SidebarMini = styled(SidebarNav, {
@@ -197,28 +231,14 @@ export const SidebarMini = styled(SidebarNav, {
 export const SidebarLinkMini = styled(SidebarLink, {
   justifyContent: 'center',
   position: 'relative',
-  'span::before': {
-    content: '',
-    width: '.5rem',
-    aspectRatio: '1 / 1',
-    position: 'absolute',
-    // Put arrow on middle
-    left: '-.25rem',
-    top: 'calc(50% - .25rem)',
-    backgroundColor: '$$backgroundColor',
-    transform: 'rotate(45deg)',
-  },
-  span: {
-    position: 'absolute',
-    left: 'calc(100% + 1.5rem)',
-    backgroundColor: '$$backgroundColor',
-    padding: '1rem 1.5rem',
-    borderRadius: '.5rem',
-  },
 });
 
 export const SidebarFooterMini = styled(SidebarFooter, {
   gap: '0.5rem',
+  /** Weird stuff on storybook */
+  'button + button': {
+    marginLeft: '0',
+  },
 });
 
 export const LogoutConfirmationMini = styled(LogoutConfirmation, {
@@ -227,19 +247,19 @@ export const LogoutConfirmationMini = styled(LogoutConfirmation, {
     content: '',
     position: 'absolute',
     width: '.5rem',
-    height: '.5rem',
+    aspectRatio: '1 / 1',
     left: 'calc(100% + 1.25rem)',
-    backgroundColor: '$$backgroundColor',
+    backgroundColor: '$primary',
     transform: 'rotate(45deg)',
   },
   '&:focus::after': {
     content: 'Are you sure?',
     position: 'absolute',
     left: 'calc(100% + 1.5rem)',
-    backgroundColor: '$$backgroundColor',
+    backgroundColor: '$primary',
     padding: '1rem 2rem',
     width: 'max-content',
     borderRadius: '.5rem',
-    color: '$$textColor',
+    color: '$accent',
   },
 });

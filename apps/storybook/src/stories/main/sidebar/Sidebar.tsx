@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import {
   Copyright,
+  darkTheme,
+  globalStyles,
   Logout,
   LogoutConfirmation,
   LogoutConfirmationMini,
@@ -41,6 +43,7 @@ export const Sidebar = ({ theme, project }: ISidebarProps) => {
   const [collapse, setCollapse] = useState(false);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
+  // Handler when logout button is clicked
   const handleLogoutClick = () => {
     if (isLoggingOut) {
       // Perform logging out here
@@ -50,52 +53,58 @@ export const Sidebar = ({ theme, project }: ISidebarProps) => {
     }
   };
 
+  // Handler when logout button is blurred
   const handleLogoutBlur = () => {
     setIsLoggingOut(false);
   };
 
+  // Handler when collapse button is clicked
   const handleCollapseClick = () => {
     setCollapse(!collapse);
   };
 
+  // Handler when theme button is clicked
   const handleThemeClick = () => {
     setCurrentTheme(currentTheme === 'light' ? 'dark' : 'light');
   };
 
-  // Array for nav links
+  // Array for navigation links
   const navDetails: INavDetails = {
     'uni-lectives': {
       name: 'Uni-lectives',
-      icon: 'src/stories/assets/cselectives-icon.png',
+      icon: 'src/assets/icons/cselectives-icon.png',
       navLinks: [
         {
           name: 'Browse Courses',
-          icon: 'src/stories/assets/book-open.svg',
+          icon: 'src/assets/icons/book-open.svg',
         },
         {
           name: 'My Reviews',
-          icon: 'src/stories/assets/edit.svg',
+          icon: 'src/assets/icons/edit.svg',
         },
         {
           name: 'Terms and Conditions',
-          icon: 'src/stories/assets/terms-and-conditions.svg',
+          icon: 'src/assets/icons/terms-and-conditions.svg',
         },
       ],
     },
   };
 
+  // Apply global stylings
+  globalStyles();
+
   return (
     <>
       {!collapse ? (
-        <SidebarNav theme={currentTheme}>
-          {/* Sidebar header (icon + title + collapse icon) */}
+        <SidebarNav className={currentTheme === 'dark' ? darkTheme : ''}>
+          {/* Big sidebar version */}
           <SidebarHeader>
             <img id='icon' alt={navDetails[project].name} src={navDetails[project].icon} />
             <h1>{navDetails[project].name}</h1>
             <img
               alt='Collapse Navbar'
               onClick={handleCollapseClick}
-              src='src/stories/assets/collapse.svg'
+              src='src/assets/icons/collapse.svg'
             />
           </SidebarHeader>
           <SidebarLinkList>
@@ -111,18 +120,18 @@ export const Sidebar = ({ theme, project }: ISidebarProps) => {
               <div>
                 <img
                   id='sidebar-profile-picture'
-                  src='src/stories/assets/default-avatar-profile.jpg'
+                  src='src/assets/icons/default-avatar-profile.jpg'
                   alt='Profile picture'
                 />
                 <p>Darian Lee</p>
               </div>
               <SidebarLink onClick={handleThemeClick}>
-                <img alt='Change theme' src='src/stories/assets/dark-mode.svg' />
+                <img alt='Change theme' src='src/assets/icons/dark-mode.svg' />
               </SidebarLink>
             </SidebarProfile>
             {!isLoggingOut ? (
               <Logout onClick={handleLogoutClick}>
-                <img alt='Logout' src='src/stories/assets/logout.svg' />
+                <img alt='Logout' src='src/assets/icons/logout.svg' />
                 Logout
               </Logout>
             ) : (
@@ -131,7 +140,7 @@ export const Sidebar = ({ theme, project }: ISidebarProps) => {
                 onClick={handleLogoutClick}
                 onBlur={handleLogoutBlur}
               >
-                <img alt='Logout' src='src/stories/assets/logout.svg' />
+                <img alt='Logout' src='src/assets/icons/logout.svg' />
                 Are you sure?
               </LogoutConfirmation>
             )}
@@ -142,7 +151,8 @@ export const Sidebar = ({ theme, project }: ISidebarProps) => {
           </SidebarFooter>
         </SidebarNav>
       ) : (
-        <SidebarMini theme={currentTheme}>
+        <SidebarMini className={currentTheme === 'dark' ? darkTheme : ''}>
+          {/* Small sidebar version */}
           <SidebarHeader>
             <img id='icon' alt={navDetails[project].name} src={navDetails[project].icon} />
           </SidebarHeader>
@@ -157,19 +167,19 @@ export const Sidebar = ({ theme, project }: ISidebarProps) => {
             <SidebarLinkMini>
               <img
                 id='sidebar-profile-picture'
-                src='src/stories/assets/default-avatar-profile.jpg'
+                src='src/assets/icons/default-avatar-profile.jpg'
                 alt='Profile picture'
               />
             </SidebarLinkMini>
             <SidebarLinkMini onClick={handleCollapseClick}>
-              <img alt='Collapse Navbar' src='src/stories/assets/collapse.svg' />
+              <img alt='Collapse Navbar' src='src/assets/icons/collapse.svg' />
             </SidebarLinkMini>
             <SidebarLinkMini onClick={handleThemeClick}>
-              <img alt='Change theme' src='src/stories/assets/dark-mode.svg' />
+              <img alt='Change theme' src='src/assets/icons/dark-mode.svg' />
             </SidebarLinkMini>
             {!isLoggingOut ? (
               <Logout onClick={handleLogoutClick}>
-                <img alt='Logout' src='src/stories/assets/logout.svg' />
+                <img alt='Logout' src='src/assets/icons/logout.svg' />
               </Logout>
             ) : (
               <LogoutConfirmationMini
@@ -177,7 +187,7 @@ export const Sidebar = ({ theme, project }: ISidebarProps) => {
                 onClick={handleLogoutClick}
                 onBlur={handleLogoutBlur}
               >
-                <img alt='Logout' src='src/stories/assets/logout.svg' />
+                <img alt='Logout' src='src/assets/icons/logout.svg' />
               </LogoutConfirmationMini>
             )}
           </SidebarFooterMini>
