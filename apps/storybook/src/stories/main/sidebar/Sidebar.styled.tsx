@@ -98,7 +98,7 @@ export const SidebarHeader = styled('div', {
   '#icon': {
     width: '2rem',
     height: 'auto',
-    cursor: 'initial',
+    cursor: 'pointer',
     filter: 'none',
   },
   ':first-child': {
@@ -113,6 +113,7 @@ export const SidebarHeader = styled('div', {
     color: '$accent',
     margin: 0,
     textAlign: 'center',
+    cursor: 'pointer',
   },
 });
 

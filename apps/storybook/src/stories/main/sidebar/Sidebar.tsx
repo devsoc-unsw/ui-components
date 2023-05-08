@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
   Copyright,
   darkTheme,
@@ -18,27 +18,22 @@ import {
   TermsAndConditions,
 } from './Sidebar.styled';
 
-interface INavLink {
+type NavLink = {
   name: string;
   icon: string;
-}
+  onClick: () => void;
+};
 
-interface INavDetailsItem {
-  name: string;
-  icon: string;
-  navLinks: INavLink[];
-}
+type NavContent = NavLink & {
+  onLogout: () => void;
+  content?: NavLink[];
+};
 
-interface INavDetails {
-  [key: string]: INavDetailsItem;
-}
-
-interface ISidebarProps {
+type SidebarProps = NavContent & {
   theme?: 'dark' | 'light';
-  project: string;
-}
+};
 
-export const Sidebar = ({ theme, project }: ISidebarProps) => {
+export const Sidebar = ({ theme, name, icon, onClick, onLogout, content }: SidebarProps) => {
   const [currentTheme, setCurrentTheme] = useState(theme);
   const [collapse, setCollapse] = useState(false);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
@@ -46,8 +41,7 @@ export const Sidebar = ({ theme, project }: ISidebarProps) => {
   // Handler when logout button is clicked
   const handleLogoutClick = () => {
     if (isLoggingOut) {
-      // Perform logging out here
-      console.log('Logged out');
+      onLogout();
     } else {
       setIsLoggingOut(true);
     }
@@ -68,30 +62,11 @@ export const Sidebar = ({ theme, project }: ISidebarProps) => {
     setCurrentTheme(currentTheme === 'light' ? 'dark' : 'light');
   };
 
-  // Array for navigation links
-  const navDetails: INavDetails = {
-    'uni-lectives': {
-      name: 'Uni-lectives',
-      icon: 'src/assets/icons/cselectives-icon.png',
-      navLinks: [
-        {
-          name: 'Browse Courses',
-          icon: 'src/assets/icons/book-open.svg',
-        },
-        {
-          name: 'My Reviews',
-          icon: 'src/assets/icons/edit.svg',
-        },
-        {
-          name: 'Terms and Conditions',
-          icon: 'src/assets/icons/terms-and-conditions.svg',
-        },
-      ],
-    },
-  };
-
   // Apply global stylings
   globalStyles();
+
+  // Set currentTheme state appropriately
+  useEffect(() => setCurrentTheme(theme), [theme]);
 
   return (
     <>
@@ -99,8 +74,8 @@ export const Sidebar = ({ theme, project }: ISidebarProps) => {
         <SidebarNav className={currentTheme === 'dark' ? darkTheme : ''}>
           {/* Big sidebar version */}
           <SidebarHeader>
-            <img id='icon' alt={navDetails[project].name} src={navDetails[project].icon} />
-            <h1>{navDetails[project].name}</h1>
+            <img id='icon' alt={name} src={icon} onClick={onClick} />
+            <h1 onClick={onClick}>{name}</h1>
             <img
               alt='Collapse Navbar'
               onClick={handleCollapseClick}
@@ -108,12 +83,13 @@ export const Sidebar = ({ theme, project }: ISidebarProps) => {
             />
           </SidebarHeader>
           <SidebarLinkList>
-            {navDetails[project].navLinks.map((navLink) => (
-              <SidebarLink>
-                <img alt={navLink.name} src={navLink.icon} />
-                <p>{navLink.name}</p>
-              </SidebarLink>
-            ))}
+            {content &&
+              content.map((link) => (
+                <SidebarLink>
+                  <img alt={link.name} src={link.icon} />
+                  <p>{link.name}</p>
+                </SidebarLink>
+              ))}
           </SidebarLinkList>
           <SidebarFooter>
             <SidebarProfile>
@@ -154,14 +130,15 @@ export const Sidebar = ({ theme, project }: ISidebarProps) => {
         <SidebarMini className={currentTheme === 'dark' ? darkTheme : ''}>
           {/* Small sidebar version */}
           <SidebarHeader>
-            <img id='icon' alt={navDetails[project].name} src={navDetails[project].icon} />
+            <img id='icon' alt={name} src={icon} onClick={onClick} />
           </SidebarHeader>
           <SidebarLinkList>
-            {navDetails[project].navLinks.map((navLink) => (
-              <SidebarLinkMini>
-                <img alt={navLink.name} src={navLink.icon} />
-              </SidebarLinkMini>
-            ))}
+            {content &&
+              content.map((link) => (
+                <SidebarLinkMini>
+                  <img alt={link.name} src={link.icon} />
+                </SidebarLinkMini>
+              ))}
           </SidebarLinkList>
           <SidebarFooterMini>
             <SidebarLinkMini>
