@@ -2,7 +2,7 @@ import './header.css';
 
 import React from 'react';
 
-import { Button } from './Button';
+import { Button } from '../button/Button';
 
 interface User {
   name: string;
@@ -38,7 +38,7 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }: HeaderProps
         <h1>Acme</h1>
       </div>
       <div>
-        {(user != null) ? (
+        {user != null ? (
           <>
             <span className='welcome'>
               Welcome, <b>{user.name}</b>!
