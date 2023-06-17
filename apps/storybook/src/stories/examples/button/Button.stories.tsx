@@ -1,41 +1,34 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
+import React from "react";
+import { Meta, StoryObj } from "@storybook/react";
+import { Button, ButtonProps } from "../../../../../../packages/components/src/button";
+import DarkMode from "../../../assets/icons/dark-mode.svg"
 
-import { Button } from './Button';
-
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default {
-  title: 'Example/Button',
+const meta: Meta<typeof Button> = {
   component: Button,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof Button>;
+  title: "Example/Button",
+  argTypes: {},
+};
+export default meta;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+type Story = StoryObj<typeof Button>;
 
-export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
+export const Primary: Story = (args: ButtonProps) => (
+  <Button data-testId="primary-button" {...args} />
+);
 Primary.args = {
-  primary: true,
-  label: 'Button',
+  label: "Button",
+  theme: "light",
+  type: "primary",
+  disabled: false,
+  icon: <img src={DarkMode} alt="dark mode icon" />
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: 'Button',
-};
-
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
+export const Disabled: Story = (args: ButtonProps) => (
+  <Button data-testId="disabled-button" {...args} />
+);
+Disabled.args = {
+  label: "Button",
+  theme: "light",
+  type: "primary",
+  disabled: true,
 };
