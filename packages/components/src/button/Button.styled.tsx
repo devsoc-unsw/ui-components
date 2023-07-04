@@ -70,13 +70,45 @@ export const ButtonContainer = styled('button', {
         borderWidth: 0,
         backgroundColor: '$disabled',
         color: '$disabledText',
-        cursor: 'default',
+        cursor: 'not-allowed',
         '&:hover': {
           backgroundColor: '$disabled',
         },
       },
     },
   },
+
+  // If a button is disabled, this takes priority over if its type is ghost or text 
+  compoundVariants: [
+    {
+      type: 'ghost',
+      disabled: true,
+      css: {
+        borderRadius: 4,
+        borderWidth: 0,
+        backgroundColor: '$disabled',
+        color: '$disabledText',
+        cursor: 'not-allowed',
+        '&:hover': {
+          backgroundColor: '$disabled',
+        },
+      },
+    },
+    {
+      type: 'text',
+      disabled: true,
+      css: {
+        borderRadius: 4,
+        borderWidth: 0,
+        backgroundColor: '$disabled',
+        color: '$disabledText',
+        cursor: 'not-allowed',
+        '&:hover': {
+          backgroundColor: '$disabled',
+        },
+      },
+    }
+  ],
 
   defaultVariants: {
     type: 'primary',
