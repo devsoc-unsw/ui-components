@@ -1,5 +1,5 @@
 import { globalStyles } from "../index.styled";
-import { ButtonContainer, IconWrapper, darkTheme } from "./Button.styled";
+import { ButtonContainer, IconWrapper, LabelWrapper, darkTheme } from "./Button.styled";
 import { type ButtonProps } from "./Button.types";
 
 export const Button = ({label, theme, type, icon, disabled, onClick}: ButtonProps) => {
@@ -19,7 +19,7 @@ export const Button = ({label, theme, type, icon, disabled, onClick}: ButtonProp
           {icon}
         </IconWrapper>
       )}
-      {label}
+      <LabelWrapper>{label}</LabelWrapper>
     </ButtonContainer>
   )
 }

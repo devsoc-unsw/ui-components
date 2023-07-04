@@ -86,19 +86,26 @@ export const ButtonContainer = styled('button', {
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
-  justifyContent: 'center',
+  justifyContent: 'flex-start',
   fontSize: 16,
   paddingTop: 10,
   paddingBottom: 10,
   paddingLeft: 12,
   paddingRight: 12,
+  height: 44,
   gap: 6
+})
+
+export const LabelWrapper = styled('div', {
+  display: 'flex',
+  flexDirection: 'row',
+  alignContent: 'center',
 })
 
 export const IconWrapper = styled('div', {
   display:'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
+  flexDirection: 'row',
+  justifyContent: 'flex-start',
   alignContent: 'center',
-  height: 12
+  width: 'min-content'
 })
