@@ -12,12 +12,10 @@ const { styled } = createStitches({
             secondary: '#EDEEF1',
             tertiary: '#DADEE2',
             accent: '#323E4D',
-            'warning-background': '#FCDADA',
-            'warning-text': '#EF4444',
-            'terms-and-copyright': '#7A8797',
-            link: '#5193F5',
-            border: '#59697D',
             shadow: '#BDC3CB4D',
+            'opened-border': '#59697D',
+            'disabled-background': '#F8F8F9',
+            'disabled-text': '#6C798B',
         },
         fonts: {
             display: 'TT Commons Pro Variable, Segoe UI, Arial, sans-serif',
@@ -38,8 +36,10 @@ export const darkTheme = createTheme('dark', {
         secondary: '#323E4D',
         tertiary: '#404F63',
         accent: '#EEF0F2',
-        border: '#BDC3CB',
         shadow: '#59697D4D',
+        'opened-border': '#BDC3CB',
+        'disabled-background': '#242C37',
+        'disabled-text': '#9BA5B1',
     },
     filters: {
         'filter-icon':
@@ -56,9 +56,12 @@ export const globalStyles = globalCss({
         src: "url('apps/storybook/src/assets/fonts/TT_Commons_Pro_Variable.woff2') format('woff2')",
     },
     p: {
+        color: '$accent',
+        textAlign: 'center',
         fontFamily: '$display',
         weight: '500',
         lineHeight: '20px',
+        fontSize: '16px',
     },
     '*, *::before, *::after': {
         margin: 0,
@@ -70,28 +73,35 @@ export const globalStyles = globalCss({
     },
     button: {
         cursor: 'pointer',
-        fontSize: '16px',
+        padding: '5px 12px',
+        display: 'flex',
+        alignItems: 'center',
+        '&:hover': {
+            backgroundColor: '$secondary',
+        },
+        '&:disabled': {
+            backgroundColor: '$disabled-background',
+            color: '$disabled-text',
+            cursor: 'none',
+        },
     },
 });
 
-export const DropdownContent = styled('nav', {
+export const DropdownContent = styled('div', {
     width: '161px',
     display: 'flex',
     flexDirection: 'column',
     minHeight: 'auto',
 });
 
-export const DropdownHeader = styled('button', {
+export const DropdownBox = styled('button', {
     height: '44px',
     maxWidth: '161px',
+    backgroundColor: '$primary',
+    justify: 'space-between',
     borderRadius: '4px',
     borderWidth: '1px',
     borderStyle: 'solid',
-    justify: 'space-between',
-    padding: '5px 12px',
-    backgroundColor: '$primary',
-    display: 'flex',
-    alignItems: 'center',
     img: {
         width: '20px',
         height: '20px',
@@ -100,38 +110,34 @@ export const DropdownHeader = styled('button', {
         marginLeft: 'auto',
     },
     p: {
-        color: '$accent',
-        margin: 0,
-        textAlign: 'center',
         maxWidth: '133px',
         overflowX: 'hidden',
         whiteSpace: 'nowrap',
         textOverflow: 'ellipsis',
     },
-    '&:hover': {
-        backgroundColor: '$secondary',
-    },
 });
 
-export const DropdownHeaderClosed = styled(DropdownHeader, {
+export const DropdownBoxClosed = styled(DropdownBox, {
     borderColor: '$tertiary',
 });
 
-
-export const DropdownHeaderOpened = styled(DropdownHeader, {
-    borderColor: '$border',
+export const DropdownBoxOpened = styled(DropdownBox, {
+    borderColor: '$opened-border',
 });
 
 export const DropdownOptionList = styled('div', {
-    minWidth: 'max-content',
     marginTop: '11px',
     height: 'auto',
-    borderRadius: '4px',
+    minWidth: 'max-content',
     backgroundColor: '$primary',
+    borderRadius: '4px',
     display: 'flex',
     flexDirection: 'column',
     overflowY: 'auto',
-    boxShadow: '0 2px 3px 0px $shadow',
+    /* idk why but storybook isn't showing
+     * boxShadow with $shadow as the colour */
+    // FIXME: $shadow
+    boxShadow: '0 2px 3px 0px #59697D4D',
     /** Weird stuff on storybook */
     'button + button': {
         marginLeft: '0',
@@ -140,20 +146,8 @@ export const DropdownOptionList = styled('div', {
 
 export const DropdownOption = styled('button', {
     height: '36px',
-    padding: '5px 12px',
-    display: 'flex',
     gap: '12px',
-    alignItems: 'center',
     border: 'none',
     outline: 'none',
     background: 'none',
-    cursor: 'pointer',
-    p: {
-        color: '$accent',
-        textAlign: 'center',
-        fontFamily: '$display',
-    },
-    '&:hover': {
-        backgroundColor: '$secondary',
-    },
 });

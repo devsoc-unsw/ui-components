@@ -3,11 +3,11 @@ import { useEffect, useState } from 'react';
 import {
     darkTheme,
     globalStyles,
-    DropdownHeaderClosed,
-    DropdownHeaderOpened,
+    DropdownContent,
+    DropdownBoxClosed,
+    DropdownBoxOpened,
     DropdownOption,
     DropdownOptionList,
-    DropdownContent,
 } from './Dropdown.styled';
 
 type DropdownOption = {
@@ -49,24 +49,24 @@ export const Dropdown = ({ theme, options }: DropdownProps) => {
             {!collapse ? (
                 <DropdownContent className={currentTheme === 'dark' ? darkTheme : ''}>
                     {/* Collapsed options */}
-                    <DropdownHeaderClosed onClick={handleCollapseClick}>
+                    <DropdownBoxClosed onClick={handleCollapseClick}>
                         <p>{selectedOption ? selectedOption : defaultOption}</p>
                         <img
-                            alt='Chevron Down'
+                            alt='chevron-down'
                             src='src/assets/icons/angle-down.svg'
                         />
-                    </DropdownHeaderClosed>
+                    </DropdownBoxClosed>
                 </DropdownContent>
             ) : (
                 <DropdownContent className={currentTheme === 'dark' ? darkTheme : ''}>
                     {/* Show options */}
-                    <DropdownHeaderOpened onClick={handleCollapseClick}>
+                    <DropdownBoxOpened onClick={handleCollapseClick}>
                         <p>{selectedOption ? selectedOption : defaultOption}</p>
                         <img
-                            alt='Chevron Up'
+                            alt='chevron-up'
                             src='src/assets/icons/angle-up.svg'
                         />
-                    </DropdownHeaderOpened>
+                    </DropdownBoxOpened>
 
                     <DropdownOptionList>
                         {options &&
