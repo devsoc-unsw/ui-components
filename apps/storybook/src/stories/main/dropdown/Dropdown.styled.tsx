@@ -103,7 +103,10 @@ export const DropdownHeader = styled('button', {
         color: '$accent',
         margin: 0,
         textAlign: 'center',
-        cursor: 'pointer',
+        maxWidth: '133px',
+        overflowX: 'hidden',
+        whiteSpace: 'nowrap',
+        textOverflow: 'ellipsis',
     },
     '&:hover': {
         backgroundColor: '$secondary',
@@ -120,6 +123,7 @@ export const DropdownHeaderOpened = styled(DropdownHeader, {
 });
 
 export const DropdownOptionList = styled('div', {
+    minWidth: 'max-content',
     marginTop: '11px',
     height: 'auto',
     borderRadius: '4px',
