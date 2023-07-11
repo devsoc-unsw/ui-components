@@ -16,6 +16,8 @@ const { styled } = createStitches({
             'warning-text': '#EF4444',
             'terms-and-copyright': '#7A8797',
             link: '#5193F5',
+            border: '#59697D',
+            shadow: '#BDC3CB4D',
         },
         fonts: {
             display: 'TT Commons Pro Variable, Segoe UI, Arial, sans-serif',
@@ -36,6 +38,8 @@ export const darkTheme = createTheme('dark', {
         secondary: '#323E4D',
         tertiary: '#404F63',
         accent: '#EEF0F2',
+        border: '#BDC3CB',
+        shadow: '#59697D4D',
     },
     filters: {
         'filter-icon':
@@ -51,8 +55,10 @@ export const globalStyles = globalCss({
         fontDisplay: 'optional',
         src: "url('apps/storybook/src/assets/fonts/TT_Commons_Pro_Variable.woff2') format('woff2')",
     },
-    html: {
+    p: {
         fontFamily: '$display',
+        weight: '500',
+        lineHeight: '20px',
     },
     '*, *::before, *::after': {
         margin: 0,
@@ -69,35 +75,28 @@ export const globalStyles = globalCss({
 });
 
 export const DropdownContent = styled('nav', {
-    borderRadius: '4px',
+    width: '161px',
     display: 'flex',
     flexDirection: 'column',
-    // position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '175px',
     minHeight: 'auto',
 });
 
-export const DropdownHeader = styled('div', {
-    border: '1px grey solid',
+export const DropdownHeader = styled('button', {
+    height: '44px',
+    maxWidth: '161px',
     borderRadius: '4px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '.75rem',
-    textAlign: 'center',
-    cursor: 'pointer',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    justify: 'space-between',
+    padding: '5px 12px',
     backgroundColor: '$primary',
+    display: 'flex',
+    alignItems: 'center',
     img: {
-        width: '1.5rem',
+        width: '20px',
+        height: '20px',
         aspectRatio: '1 / 1',
         filter: '$filter-icon',
-    },
-    ':first-child': {
-        marginRight: 'auto',
-    },
-    ':last-child': {
         marginLeft: 'auto',
     },
     p: {
@@ -106,28 +105,29 @@ export const DropdownHeader = styled('div', {
         textAlign: 'center',
         cursor: 'pointer',
     },
-    '&:hover, &:active, &:focus': {
-        borderRadius: '4px',
-        outline: 'none',
+    '&:hover': {
         backgroundColor: '$secondary',
-        border: '1px $accent solid',
     },
+});
+
+export const DropdownHeaderClosed = styled(DropdownHeader, {
+    borderColor: '$tertiary',
+});
+
+
+export const DropdownHeaderOpened = styled(DropdownHeader, {
+    borderColor: '$border',
 });
 
 export const DropdownOptionList = styled('div', {
     marginTop: '11px',
+    height: 'auto',
+    borderRadius: '4px',
+    backgroundColor: '$primary',
     display: 'flex',
     flexDirection: 'column',
     overflowY: 'auto',
-    backgroundColor: '$primary',
-    borderRadius: '4px',
-    boxShadow: '0 2px 1px .5px #9E9E9E',
-    p: {
-        color: '$accent',
-        margin: 0,
-        textAlign: 'center',
-        cursor: 'pointer',
-    },
+    boxShadow: '0 2px 3px 0px $shadow',
     /** Weird stuff on storybook */
     'button + button': {
         marginLeft: '0',
@@ -135,23 +135,21 @@ export const DropdownOptionList = styled('div', {
 });
 
 export const DropdownOption = styled('button', {
+    height: '36px',
+    padding: '5px 12px',
     display: 'flex',
+    gap: '12px',
     alignItems: 'center',
-    padding: '.75rem',
     border: 'none',
     outline: 'none',
     background: 'none',
-    color: '$accent',
     cursor: 'pointer',
     p: {
         color: '$accent',
-        margin: 0,
         textAlign: 'center',
-        cursor: 'pointer',
+        fontFamily: '$display',
     },
-    '&:hover, &:active, &:focus': {
-        borderRadius: '4px',
-        outline: 'none',
+    '&:hover': {
         backgroundColor: '$secondary',
     },
 });

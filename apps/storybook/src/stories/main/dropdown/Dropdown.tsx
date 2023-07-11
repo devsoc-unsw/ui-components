@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import {
     darkTheme,
     globalStyles,
-    DropdownHeader,
+    DropdownHeaderClosed,
+    DropdownHeaderOpened,
     DropdownOption,
     DropdownOptionList,
     DropdownContent,
@@ -41,29 +42,31 @@ export const Dropdown = ({ theme, options }: DropdownProps) => {
     // Set currentTheme state appropriately
     useEffect(() => setCurrentTheme(theme), [theme]);
 
+    const defaultOption = 'Select ...';
+
     return (
         <>
             {!collapse ? (
                 <DropdownContent className={currentTheme === 'dark' ? darkTheme : ''}>
-                    {/* Collapsed dropdown */}
-                    <DropdownHeader onClick={handleCollapseClick}>
-                        <p>{selectedOption ? selectedOption : 'Select ...'}</p>
+                    {/* Collapsed options */}
+                    <DropdownHeaderClosed onClick={handleCollapseClick}>
+                        <p>{selectedOption ? selectedOption : defaultOption}</p>
                         <img
-                            alt='Collapse Dropdown'
+                            alt='Chevron Down'
                             src='src/assets/icons/angle-down.svg'
                         />
-                    </DropdownHeader>
+                    </DropdownHeaderClosed>
                 </DropdownContent>
             ) : (
                 <DropdownContent className={currentTheme === 'dark' ? darkTheme : ''}>
-                    {/* Show options list */}
-                    <DropdownHeader onClick={handleCollapseClick}>
-                        <p>{selectedOption ? selectedOption : 'Select ...'}</p>
+                    {/* Show options */}
+                    <DropdownHeaderOpened onClick={handleCollapseClick}>
+                        <p>{selectedOption ? selectedOption : defaultOption}</p>
                         <img
-                            alt='Open Dropdown'
+                            alt='Chevron Up'
                             src='src/assets/icons/angle-up.svg'
                         />
-                    </DropdownHeader>
+                    </DropdownHeaderOpened>
 
                     <DropdownOptionList>
                         {options &&
