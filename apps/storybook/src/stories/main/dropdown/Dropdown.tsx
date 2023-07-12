@@ -6,6 +6,7 @@ import {
     DropdownContent,
     DropdownBoxClosed,
     DropdownBoxOpened,
+    DropdownErrorMessage,
     DropdownOption,
     DropdownOptionList,
 } from './Dropdown.styled';
@@ -14,16 +15,27 @@ type DropdownOption = {
     name: string;
 }
 
-type DropdownProps = {
+type DropdownOptions = {
     options: DropdownOption[];
     onSelect: (option: string) => string;
+}
+
+type DropdownProps = DropdownOptions & {
+    onSubmit: () => void;
     theme?: 'dark' | 'light';
 };
 
-export const Dropdown = ({ theme, options }: DropdownProps) => {
+export const Dropdown = ({ theme, onSubmit, options }: DropdownProps) => {
     const [currentTheme, setCurrentTheme] = useState(theme);
     const [collapse, setCollapse] = useState(false);
     const [selectedOption, setSelectedOption] = useState(String);
+    const [isError, setError] = useState(false);
+
+    const defaultOption = 'Select ...';
+
+    const handleSubmit = (option: string) => {
+        (option === defaultOption) ? setError(true) : setError(false);
+    };
 
     // Handler when collapse button is clicked
     const handleCollapseClick = () => {
@@ -42,8 +54,6 @@ export const Dropdown = ({ theme, options }: DropdownProps) => {
     // Set currentTheme state appropriately
     useEffect(() => setCurrentTheme(theme), [theme]);
 
-    const defaultOption = 'Select ...';
-
     return (
         <>
             {!collapse ? (
@@ -56,6 +66,9 @@ export const Dropdown = ({ theme, options }: DropdownProps) => {
                             src='src/assets/icons/angle-down.svg'
                         />
                     </DropdownBoxClosed>
+                    {isError ? (
+                        <DropdownErrorMessage><p>Please select an option.</p></DropdownErrorMessage>
+                    ) : <></>}
                 </DropdownContent>
             ) : (
                 <DropdownContent className={currentTheme === 'dark' ? darkTheme : ''}>
@@ -67,8 +80,7 @@ export const Dropdown = ({ theme, options }: DropdownProps) => {
                             src='src/assets/icons/angle-up.svg'
                         />
                     </DropdownBoxOpened>
-
-                    <DropdownOptionList>
+                    <DropdownOptionList className={currentTheme === 'dark' ? darkTheme : ''}>
                         {options &&
                             options.map((option) => (
                                 <DropdownOption onClick={() => handleOptionSelect(option)}>

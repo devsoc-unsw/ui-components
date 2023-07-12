@@ -16,6 +16,7 @@ const { styled } = createStitches({
             'opened-border': '#59697D',
             'disabled-background': '#F8F8F9',
             'disabled-text': '#6C798B',
+            error: '#EF4444',
         },
         fonts: {
             display: 'TT Commons Pro Variable, Segoe UI, Arial, sans-serif',
@@ -25,6 +26,8 @@ const { styled } = createStitches({
                 'brightness(0) saturate(100%) invert(21%) sepia(9%) saturate(1606%) hue-rotate(174deg) brightness(93%) contrast(87%)',
             'filter-red':
                 'brightness(0) saturate(100%) invert(47%) sepia(71%) saturate(5831%) hue-rotate(340deg) brightness(101%) contrast(88%)',
+            'filter-disabled':
+                'invert(98%) sepia(2%) saturate(573%) hue-rotate(177deg) brightness(91%) contrast(95%)',
         },
     },
 });
@@ -40,10 +43,15 @@ export const darkTheme = createTheme('dark', {
         'opened-border': '#BDC3CB',
         'disabled-background': '#242C37',
         'disabled-text': '#9BA5B1',
+        error: '#F47C7C',
     },
     filters: {
         'filter-icon':
             'brightness(0) saturate(100%) invert(88%) sepia(12%) saturate(34%) hue-rotate(170deg) brightness(108%) contrast(92%)',
+        'filter-red':
+            'invert(60%) sepia(18%) saturate(1251%) hue-rotate(314deg) brightness(96%) contrast(98%)',
+        'filter-disabled':
+            'invert(26%) sepia(51%) saturate(307%) hue-rotate(174deg) brightness(92%) contrast(85%)',
     },
 });
 
@@ -79,11 +87,6 @@ export const globalStyles = globalCss({
         '&:hover': {
             backgroundColor: '$secondary',
         },
-        '&:disabled': {
-            backgroundColor: '$disabled-background',
-            color: '$disabled-text',
-            cursor: 'none',
-        },
     },
 });
 
@@ -115,6 +118,27 @@ export const DropdownBox = styled('button', {
         whiteSpace: 'nowrap',
         textOverflow: 'ellipsis',
     },
+    '&:disabled': {
+        borderColor: '$tertiary',
+        backgroundColor: '$disabled-background',
+        cursor: 'default',
+        p: {
+            color: '$disabled-text',
+        },
+        img: {
+            filter: '$filter-disabled',
+        },
+    },
+    '&:invalid': {
+        borderColor: '$error',
+        cursor: 'default',
+        p: {
+            color: '$error',
+        },
+        img: {
+            filter: '$filter-red',
+        },
+    }
 });
 
 export const DropdownBoxClosed = styled(DropdownBox, {
@@ -123,6 +147,14 @@ export const DropdownBoxClosed = styled(DropdownBox, {
 
 export const DropdownBoxOpened = styled(DropdownBox, {
     borderColor: '$opened-border',
+});
+
+export const DropdownErrorMessage = styled(DropdownContent, {
+    p: {
+        fontSize: '13px',
+        textAlign: 'left',
+        color: '$error',
+    },
 });
 
 export const DropdownOptionList = styled('div', {
@@ -134,10 +166,8 @@ export const DropdownOptionList = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     overflowY: 'auto',
-    /* idk why but storybook isn't showing
-     * boxShadow with $shadow as the colour */
-    // FIXME: $shadow
-    boxShadow: '0 2px 3px 0px #59697D4D',
+    /* FIXME: having issues with showing boxShadow with $shadow on storybook */
+    boxShadow: '0 2px 3px 0px $shadow',
     /** Weird stuff on storybook */
     'button + button': {
         marginLeft: '0',
