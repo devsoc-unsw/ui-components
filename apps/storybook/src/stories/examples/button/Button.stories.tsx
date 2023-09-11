@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { Button, type ButtonProps } from "@csesoc/ui-components/src/button";
-import DarkModeIcon from "../../../assets/icons/dark-mode.svg"
+import DarkModeIcon from "../../../assets/icons/dark-mode-white.svg"
 
 const meta: Meta<typeof Button> = {
   component: Button,
