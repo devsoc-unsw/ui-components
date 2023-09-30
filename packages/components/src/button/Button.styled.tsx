@@ -1,4 +1,4 @@
-import { createStitches, createTheme, globalCss } from '@stitches/react';
+import { createStitches, createTheme } from '@stitches/react';
 
 // Default colors
 const { styled } = createStitches({

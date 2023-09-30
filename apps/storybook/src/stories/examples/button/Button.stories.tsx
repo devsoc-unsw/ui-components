@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { Button, type ButtonProps } from "@csesoc/ui-components/src/button";
-import DarkModeIcon from "../../../assets/icons/dark-mode-white.svg"
+import DarkModeIcon from "@/assets/icons/dark-mode-white.svg"
 
 const meta: Meta<typeof Button> = {
   component: Button,
@@ -13,7 +13,7 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = (args: ButtonProps) => (
-  <Button data-testId="primary-button" {...args} />
+  <Button data-testid="primary-button" {...args} />
 );
 Primary.args = {
   label: "Button",
@@ -23,7 +23,7 @@ Primary.args = {
 };
 
 export const WithIcon: Story = (args: ButtonProps) => (
-  <Button data-testId="with-icon-button" {...args} />
+  <Button data-testid="with-icon-button" {...args} />
 );
 WithIcon.args = {
   label: "dark icon",
@@ -34,7 +34,7 @@ WithIcon.args = {
 };
 
 export const Disabled: Story = (args: ButtonProps) => (
-  <Button data-testId="disabled-button" {...args} />
+  <Button data-testid="disabled-button" {...args} />
 );
 Disabled.args = {
   label: "Disabled button",
@@ -44,7 +44,7 @@ Disabled.args = {
 };
 
 export const DisabledDarkMode: Story = (args: ButtonProps) => (
-  <Button data-testId="disabled-dark-mode-button" {...args} />
+  <Button data-testid="disabled-dark-mode-button" {...args} />
 );
 DisabledDarkMode.args = {
   label: "Dark button",
@@ -54,7 +54,7 @@ DisabledDarkMode.args = {
 };
 
 export const Ghost: Story = (args: ButtonProps) => (
-  <Button data-testId="ghost-button" {...args} />
+  <Button data-testid="ghost-button" {...args} />
 );
 Ghost.args = {
   label: "Ghost button",
@@ -64,7 +64,7 @@ Ghost.args = {
 };
 
 export const Text: Story = (args: ButtonProps) => (
-  <Button data-testId="text-button" {...args} />
+  <Button data-testid="text-button" {...args} />
 );
 Text.args = {
   label: "Text button",

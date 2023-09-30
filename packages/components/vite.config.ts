@@ -34,4 +34,7 @@ export default defineConfig((configEnv) => ({
       external: [...Object.keys(packageJson.peerDependencies)],
     },
   },
+  resolve: {
+    alias: [{ find: "@", replacement: resolve(__dirname, "./src") }]
+  }
 }));
