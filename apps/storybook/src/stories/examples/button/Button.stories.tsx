@@ -13,7 +13,7 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = (args: ButtonProps) => (
-  <Button data-testid="primary-button" {...args} />
+  <Button {...args} />
 );
 Primary.args = {
   label: "Button",
@@ -23,7 +23,7 @@ Primary.args = {
 };
 
 export const WithIcon: Story = (args: ButtonProps) => (
-  <Button data-testid="with-icon-button" {...args} />
+  <Button {...args} />
 );
 WithIcon.args = {
   label: "dark icon",
@@ -34,7 +34,7 @@ WithIcon.args = {
 };
 
 export const Disabled: Story = (args: ButtonProps) => (
-  <Button data-testid="disabled-button" {...args} />
+  <Button {...args} />
 );
 Disabled.args = {
   label: "Disabled button",
@@ -44,7 +44,7 @@ Disabled.args = {
 };
 
 export const DisabledDarkMode: Story = (args: ButtonProps) => (
-  <Button data-testid="disabled-dark-mode-button" {...args} />
+  <Button {...args} />
 );
 DisabledDarkMode.args = {
   label: "Dark button",
@@ -54,7 +54,7 @@ DisabledDarkMode.args = {
 };
 
 export const Ghost: Story = (args: ButtonProps) => (
-  <Button data-testid="ghost-button" {...args} />
+  <Button {...args} />
 );
 Ghost.args = {
   label: "Ghost button",
@@ -64,7 +64,7 @@ Ghost.args = {
 };
 
 export const Text: Story = (args: ButtonProps) => (
-  <Button data-testid="text-button" {...args} />
+  <Button {...args} />
 );
 Text.args = {
   label: "Text button",
