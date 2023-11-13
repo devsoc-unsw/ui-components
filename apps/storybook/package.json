@@ -37,7 +37,7 @@
     "eslint-config-custom": "workspace:*",
     "prettier": "2.7.1",
     "tsconfig": "workspace:*",
-    "typescript": "4.6.4",
+    "typescript": "4.9.5",
     "vite": "3.2.4"
   }
 }
