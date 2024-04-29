@@ -21,7 +21,7 @@
     "@csesoc/ui-components": "workspace:*"
   },
   "devDependencies": {
-    "@babel/core": "7.20.2",
+    "@babel/core": "7.24.5",
     "@storybook/addon-actions": "6.5.13",
     "@storybook/addon-essentials": "6.5.13",
     "@storybook/addon-interactions": "6.5.13",
