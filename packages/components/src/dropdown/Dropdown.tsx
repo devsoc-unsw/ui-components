@@ -16,6 +16,7 @@ export const Dropdown = ({
     globalStyles();
 
     const [showingOptions, setShowingOptions] = useState(initialShowingOptions);
+    const [selectedOption, setSelectedOption] = useState('');
 
     const toggleDropdownOptions = () => {
         if(disabled) {
@@ -29,7 +30,21 @@ export const Dropdown = ({
         if (event.key === 'Enter' || event.key === ' ') {
           toggleDropdownOptions();
         }
-      }
+    }
+
+    const handleOptionClick = (option: string) => {
+        setSelectedOption(option);
+        setShowingOptions(false);
+        console.log(`Selected option: ${option}`);
+    }
+
+    const handleDropdownOptionKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+        if (event.currentTarget.textContent) {
+            handleOptionClick(event.currentTarget.textContent);
+        }
+    }
+}
   
     return (
         <DropdownContainer
@@ -44,7 +59,7 @@ export const Dropdown = ({
                 disabled={disabled}
                 error={error}
             >
-                <label>{label}</label>
+                <label>{selectedOption || label}</label>
                 <img src={chevronDown} className='chevron-down'/>
             </DropdownLabel>
 
@@ -52,7 +67,12 @@ export const Dropdown = ({
             {showingOptions && 
                 <DropdownChildren>
                     {React.Children.map(children, (child: ReactNode, index: number) => (
-                        <DropdownItem key={index} tabIndex={0}>
+                        <DropdownItem 
+                            key={index} 
+                            tabIndex={0} 
+                            onClick={() => handleOptionClick(child)}
+                            onKeyDown={handleDropdownOptionKeyDown}
+                        >
                             {child}
                         </DropdownItem>
                     ))
