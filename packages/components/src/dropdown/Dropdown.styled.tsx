@@ -33,7 +33,9 @@ export const darkTheme = createTheme({
 // Entire container
 export const DropdownContainer = styled('div', {
   cursor: 'pointer',
-  width: '161px',
+  width: 'auto',
+  fontFamily: "'Nunito Sans', 'Helvetica Neue', 'Inter', sans-serif",
+  display: 'inline-block',
   color: '$dropdownPrimaryText',
 
   '.dropdown-error-msg': {
@@ -44,8 +46,8 @@ export const DropdownContainer = styled('div', {
     error: {
       true: {
         '.dropdown-error-msg': {
-          fontSize: '14px',
-          marginTop: '4px',
+          fontSize: '0.9em',
+          marginTop: '0.5em',
           color: '$dropdownErrorText',
           display: 'block',
         }
@@ -65,7 +67,7 @@ export const DropdownLabel = styled('div', {
   },
   borderRadius: '4px',
   justifyContent: 'space-between',
-  padding: '8px 12px',
+  padding: '0.5em 1em',
   '.dropdown-error-msg': {
     display: 'none',
   },
@@ -91,31 +93,33 @@ export const DropdownLabel = styled('div', {
   },
   
   '.chevron-down': {
-    height: '16px',
-    width: '16px',
-    margin: '0',
+    height: '1em',
+    width: '1em',
+    marginLeft: '3em',
     padding: '0',
-    fill: 'black',
-    opacity: '1',
+    fill: '$dropdownPrimaryText',
+    opacity: '0.8',
   },
 }
 );
 
 // Children container
 export const DropdownChildren = styled('div', {
-  width: '161px',
+  width: 'auto',
+  minWidth: '10em',
+  display: 'inline-block',
   position: 'absolute',
   zIndex: '99',
   border: '1px solid $dropdownPrimaryBorder',
   backgroundColor: '$dropdownPrimaryBackground',
-  marginTop:'8px',
+  marginTop:'0.5em',
   borderRadius: '4px',
   justifyContent: 'space-between',
-  padding: '5px 12px',
+  padding: '0.2em 1em',
   boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.25)',
 });
 
 export const DropdownItem = styled('div', {
   backgroundColor: '$dropdownPrimaryBackground',
-  padding: '8px 0',
+  padding: '0.5em 0',
 });
