@@ -1,10 +1,10 @@
 import { globalStyles } from "@/index.styled";
-import { darkTheme, InputFieldWrapper, InputFieldContainer, SmallInputFieldContainer, ErrorMessage, IconContainer } from "./Input.styled";
+import { darkTheme, InputFieldWrapper, InputFieldContainer, SmallInputFieldContainer, ErrorMessage, EyeIconContainer, UserIconContainer } from "./Input.styled";
 import { type InputProps } from "./Input.types";
 import { useState } from "react";
-import eyeOpen from '/root/Downloads/ui-components/apps/storybook/src/assets/icons/eye-on.png';
-import eyeClosed from '/root/Downloads/ui-components/apps/storybook/src/assets/icons/eye-off.png';
-
+import eyeOpen from '/root/Downloads/ui-components/apps/storybook/src/assets/icons/eye-on.svg';
+import eyeClosed from '/root/Downloads/ui-components/apps/storybook/src/assets/icons/eye-off.svg';
+import userIcon from '/root/Downloads/ui-components/apps/storybook/src/assets/icons/user.svg';
 
 export const InputField = ({ theme, style, state, onClick }: InputProps) => {
 
@@ -33,9 +33,14 @@ export const InputField = ({ theme, style, state, onClick }: InputProps) => {
                 disabled={state === "disabled"}
             />
             { style === 'password' && 
-                <IconContainer onClick={handleToggleVisibility}>
+                <EyeIconContainer onClick={handleToggleVisibility}>
                     <img src={PasswordHidden ? eyeClosed : eyeOpen} alt="Toggle visibility" />
-                </IconContainer>
+                </EyeIconContainer>
+            }
+            { style === 'icon' &&
+                <UserIconContainer>
+                    <img src={userIcon} alt="User icon"/>
+                </UserIconContainer>
             }
             {state === "error" && !isFocused && <ErrorMessage>Please try again!</ErrorMessage>}
         </InputFieldWrapper>
@@ -63,14 +68,20 @@ export const SmallInputField = ({ theme, style, state, onClick }: InputProps) =>
                 className={theme === "dark" ? darkTheme : ''} 
                 state={state}
                 style={style}
+                type={PasswordHidden ? "password" : "text"}
 
                 onClick={state === "disabled" ? () => {} : onClick}
                 disabled={state === "disabled"}
             />
             { style === 'password' && 
-                <IconContainer onClick={handleToggleVisibility}>
+                <EyeIconContainer onClick={handleToggleVisibility}>
                     <img src={PasswordHidden ? eyeClosed : eyeOpen} alt="Toggle visibility" />
-                </IconContainer>
+                </EyeIconContainer>
+            }
+            { style === 'icon' &&
+                <UserIconContainer>
+                    <img src={userIcon} alt="User icon"/>
+                </UserIconContainer>
             }
             {state === "error" && !isFocused && <ErrorMessage>Please try again!</ErrorMessage>}
         </InputFieldWrapper>

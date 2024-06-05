@@ -36,7 +36,7 @@ export const InputFieldWrapper = styled('div', {
     flexDirection: 'column',
     alignItems: 'left',
     justifyContent: 'flex-start',
-})
+});
 
 export const InputFieldContainer = styled('input', {
     position: 'relative',
@@ -61,9 +61,11 @@ export const InputFieldContainer = styled('input', {
 
     variants: {
         style: {
-            default: {},
+            text: {},
             password: {},
-            icon: {},
+            icon: {
+                paddingLeft: '49px'
+            },
         },
         state: {
             default: {},
@@ -107,9 +109,9 @@ export const ErrorMessage = styled('div', {
     fontSize: 13.33,
     fontWeight: 500,
     color: '$error',
-})
+});
 
-export const IconContainer = styled('span', {
+export const EyeIconContainer = styled('span', {
     height: 24,
     cursor: 'pointer',
     aspectRatio: 1,
@@ -117,4 +119,33 @@ export const IconContainer = styled('span', {
     right: 15,
     top: 10,
     display: 'block',
-})
+
+    variants: {
+        error: {
+            true: {
+                color: '$error',
+            },
+        },
+    },
+});
+
+export const UserIconContainer = styled('span', {
+    height: 24,
+    cursor: 'pointer',
+    aspectRatio: 1,
+    position: 'absolute',
+    left: 15,
+    top: 10,
+    display: 'block',
+
+    variants: {
+        error: {
+            true: {
+                color: '$error',
+                '& img': {
+                    color: '$error',
+                }
+            },
+        },
+    },
+});

@@ -1,11 +1,9 @@
-import { ReactElement } from "react";
-
 export type InputProps = {
     placeholder?: string
 
     theme?: "light" | "dark";
 
-    style?: "default" | "password" | "icon";
+    style?: "text" | "password" | "icon";
 
     state?: "default" | "disabled"| "error";
 
