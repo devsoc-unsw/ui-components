@@ -1,11 +1,13 @@
 import { ReactElement } from "react";
 
 export type InputProps = {
+    placeholder?: string
+
     theme?: "light" | "dark";
 
-    type?: "default" | "filled" | "error";
+    type?: "default" | "password" | "icon";
 
-    disabled?: boolean;
+    state?: "default" | "disabled"| "error";
 
     onClick?: () => void;
 }

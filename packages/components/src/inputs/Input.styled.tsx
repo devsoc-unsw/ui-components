@@ -4,103 +4,124 @@ import { createStitches, createTheme } from '@stitches/react';
 export const { styled } = createStitches({
     theme: {
         colors: {
-            background: '#f8f8f9',
-            disabled: '#edeef1',
-            unfilledText: '#5f6e82',
-            filledText: '#383c4c',
-            disabledText: '#dadee2',
-            border: '#aeb1b4',
+            background: '#F8F8F9',
+            disabledBackground: '#EDEEF1',
+            unfilledText: '#59697D',
+            filledText: '#323E4D',
+            disabledText: '#DADEE2',
+            border: '#DADEE2',
             focusedBorder: '#4b5766',
-            error: '#be3a3a',
+            error: '#EF4444',
         },
     },
 });
 
 export const darkTheme = createTheme({
     colors: {
-        background: '##242c37',
-        disabled: '#323e4d',
-        unfilledText: '#7a8797',
-        filledText: '#eef0f2',
-        disabledText: '#404f63',
-        border: '#404f63',
-        focusedBorder: '#bdc3cb',
-        error: '#f47c7c',
+        background: '#242C37',
+        disabledBackground: '#323E4D',
+        unfilledText: '#7A8797',
+        filledText: '#EEF0F2',
+        disabledText: '#404F63',
+        border: '#DADEE2',
+        focusedBorder: '#BDC3CB',
+        error: '#F47C7C',
     },
 });
 
-export const InputFieldContainer = styled('input', {
+export const InputFieldWrapper = styled('div', {
+    position: 'relative',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'left',
+    justifyContent: 'flex-start',
+})
+
+export const InputFieldContainer = styled('input', {  
+    position: 'relative',
+    fontSize: 16,
     borderRadius: 4,
-    borderWidth: 0,
-    cursor: 'pointer',
     backgroundColor: '$background',
-    borderColor: '$border',
-    
+    border: '1.5px solid $border',
+    padding: '0px 15px 0px 15px',
+    height: 45,
+    width: 354,
+    gap: 6,
+
+    '&::placeholder': {
+        color: '$unfilledText',
+    },
+
     variants: {
         type: {
             default: {
-                color: '$unfilledText',
-                '&:focus': {
+                color: '$filledText',
+                cursor: 'pointer',
+                '&:active': {
                     borderColor: '$focusedBorder',
                 },
             },
-            filled: {
+            password: {
                 color: '$filledText',
-                '&:focus': {
+                cursor: 'pointer',
+                '&:active': {
                     borderColor: '$focusedBorder',
-                }
+                },
+            },
+            icon: {
+                color: '$filledText',
+                cursor: 'pointer',
+                '&:active': {
+                    borderColor: '$focusedBorder',
+                },
+            }
+        },
+        state: {
+            default: {},
+            disabled: {
+                cursor: 'not-allowed',          // currently doesnt show
+                pointerEvents: 'none',
+                backgroundColor: '$disabledBackground',
+                '&::placeholder': {
+                    color: '$disabledText',
+                },
             },
             error: {
                 color: '$error',
+                cursor: 'pointer',
                 borderColor: '$error',
+                '&:focus, &:focus-within': {
+                    color: '$filledText',
+                    '&::placeholder': {
+                        color: '$unfilledText',
+                    },
+                },
+                '&::placeholder': {
+                    color: '$error',
+                },
             },
         },
-        disabled: {
-            true:{
-                backgroundColor: '$disabled',
-                color: '$disabledText',
-            },
-        },
-        // error: {
-        //     true: {
-        //         color: '$error',
-        //         borderColor: '$error',
-        //     },
-        // },
     },
-
-    // if an input field is disabled, this takes priority over if its type is filled or default (unfilled)
-    compoundVariants: [
-        {
-            type: 'filled',
-            disabled: true,
-            css: {
-                borderRadius: 4,
-                borderWidth: 0,
-                backgroundColor: '$disabled',
-                color: '$disabledText',
-                cursor: 'not-allowed',
-                '&:hover': {
-                    backgroundColor: '$disabled',
-                }
-            }
-        },
-    ],
 
     defaultVariants: {
         type: 'default',
-        disabled: false,
+        state: 'default',
     },
+})
 
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    fontSize: 16,
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 12,
-    paddingRight: 12,
-    height: 44,
-    gap: 6
+export const SmallInputFieldContainer = styled(InputFieldContainer, {
+    height: 30,  
+});
+
+export const ErrorMessage = styled('div', {
+    fontFamily: 'inherit',
+    fontSize: '13.33px',
+    fontWeight: 500,
+    color: '$error',
+})
+
+export const IconContainer = styled('span', {
+    position: 'absolute',
+    right: '500px', /* Adjust to your preference */
+    cursor: 'pointer',
 })
