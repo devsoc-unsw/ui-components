@@ -14,41 +14,41 @@ type Story = StoryObj<typeof InputField>;
 export const Light: Story = (args: InputProps) => <InputField {...args} />;
 Light.args = {
     theme: 'light',
-    type: 'default',
+    style: 'default',
     state: 'default'
 }
 
 export const Disabled: Story = (args: InputProps) => <InputField {...args} />;
 Disabled.args = {
     theme: 'light',
-    type: 'default',
-    state: 'default'
+    style: 'default',
+    state: 'disabled'
 }
 
 export const Error: Story = (args: InputProps) => <InputField {...args} />;
 Error.args = {
     theme: 'light',
-    type: 'default',
+    style: 'default',
     state: 'error'
 }
 
 export const Dark: Story = (args: InputProps) => <InputField {...args} />;
 Dark.args = {
     theme: 'dark',
-    type: 'default',
+    style: 'default',
     state: 'default'
 }
 
 export const DisabledDark: Story = (args: InputProps) => <InputField {...args} />;
 DisabledDark.args = {
     theme: 'dark',
-    type: 'default',
+    style: 'default',
     state: 'disabled'
 }
 
 export const ErrorDark: Story = (args: InputProps) => <InputField {...args} />;
 ErrorDark.args = {
     theme: 'dark',
-    type: 'default',
+    style: 'default',
     state: 'error'
 }

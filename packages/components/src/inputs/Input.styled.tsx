@@ -31,55 +31,44 @@ export const darkTheme = createTheme({
 
 export const InputFieldWrapper = styled('div', {
     position: 'relative',
+    width: 354,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'left',
     justifyContent: 'flex-start',
 })
 
-export const InputFieldContainer = styled('input', {  
+export const InputFieldContainer = styled('input', {
     position: 'relative',
     fontSize: 16,
     borderRadius: 4,
     backgroundColor: '$background',
     border: '1.5px solid $border',
-    padding: '0px 15px 0px 15px',
+    padding: '0px 15px',
     height: 45,
-    width: 354,
+    width: '100%',
     gap: 6,
+    color: '$filledText',
+    cursor: 'pointer',
+
+    '&:active': {
+        borderColor: '$focusedBorder',
+    },
 
     '&::placeholder': {
         color: '$unfilledText',
     },
 
     variants: {
-        type: {
-            default: {
-                color: '$filledText',
-                cursor: 'pointer',
-                '&:active': {
-                    borderColor: '$focusedBorder',
-                },
-            },
-            password: {
-                color: '$filledText',
-                cursor: 'pointer',
-                '&:active': {
-                    borderColor: '$focusedBorder',
-                },
-            },
-            icon: {
-                color: '$filledText',
-                cursor: 'pointer',
-                '&:active': {
-                    borderColor: '$focusedBorder',
-                },
-            }
+        style: {
+            default: {},
+            password: {},
+            icon: {},
         },
         state: {
             default: {},
             disabled: {
-                cursor: 'not-allowed',          // currently doesnt show
+                cursor: 'not-allowed',
                 pointerEvents: 'none',
                 backgroundColor: '$disabledBackground',
                 '&::placeholder': {
@@ -104,10 +93,10 @@ export const InputFieldContainer = styled('input', {
     },
 
     defaultVariants: {
-        type: 'default',
+        style: 'default',
         state: 'default',
     },
-})
+});
 
 export const SmallInputFieldContainer = styled(InputFieldContainer, {
     height: 30,  
@@ -115,13 +104,17 @@ export const SmallInputFieldContainer = styled(InputFieldContainer, {
 
 export const ErrorMessage = styled('div', {
     fontFamily: 'inherit',
-    fontSize: '13.33px',
+    fontSize: 13.33,
     fontWeight: 500,
     color: '$error',
 })
 
 export const IconContainer = styled('span', {
-    position: 'absolute',
-    right: '500px', /* Adjust to your preference */
+    height: 24,
     cursor: 'pointer',
+    aspectRatio: 1,
+    position: 'absolute',
+    right: 15,
+    top: 10,
+    display: 'block',
 })

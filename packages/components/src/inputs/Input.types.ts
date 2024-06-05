@@ -5,7 +5,7 @@ export type InputProps = {
 
     theme?: "light" | "dark";
 
-    type?: "default" | "password" | "icon";
+    style?: "default" | "password" | "icon";
 
     state?: "default" | "disabled"| "error";
 

@@ -14,41 +14,41 @@ type Story = StoryObj<typeof SmallInputField>;
 export const Light: Story = (args: InputProps) => <SmallInputField {...args} />;
 Light.args = {
     theme: 'light',
-    type: 'default',
+    style: 'default',
     state: 'default'
 };
 
 export const Disabled: Story = (args: InputProps) => <SmallInputField {...args} />;
 Disabled.args = {
     theme: 'light',
-    type: 'default',
+    style: 'default',
     state: 'disabled'
 };
 
 export const Error: Story = (args: InputProps) => <SmallInputField {...args} />;
 Error.args = {
     theme: 'light',
-    type: 'default',
+    style: 'default',
     state: 'error'
 };
 
 export const Dark: Story = (args: InputProps) => <SmallInputField {...args} />;
 Dark.args = {
     theme: 'dark',
-    type: 'default',
+    style: 'default',
     state: 'default'
 };
 
 export const DisabledDark: Story = (args: InputProps) => <SmallInputField {...args} />;
 DisabledDark.args = {
     theme: 'dark',
-    type: 'default',
+    style: 'default',
     state: 'disabled'
 };
 
 export const ErrorDark: Story = (args: InputProps) => <SmallInputField {...args} />;
 ErrorDark.args = {
     theme: 'dark',
-    type: 'default',
+    style: 'default',
     state: 'error'
 };
