@@ -9,3 +9,13 @@ export type InputProps = {
 
     onClick?: () => void;
 }
+
+export type SmallInputProps = {
+    placeholder?: string
+
+    theme?: "light" | "dark";
+
+    state?: "default" | "disabled"| "error";
+
+    onClick?: () => void;
+}

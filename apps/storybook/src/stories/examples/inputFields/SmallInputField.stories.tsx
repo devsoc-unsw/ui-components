@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, StoryObj } from '@storybook/react';
-import { SmallInputField, type InputProps } from '@csesoc/ui-components/src/inputs';
+import { SmallInputField, type SmallInputProps } from '@csesoc/ui-components/src/inputs';
 
 const meta: Meta<typeof SmallInputField> = {
     component: SmallInputField,
@@ -11,44 +11,38 @@ export default meta;
 
 type Story = StoryObj<typeof SmallInputField>;
 
-export const Light: Story = (args: InputProps) => <SmallInputField {...args} />;
+export const Light: Story = (args: SmallInputProps) => <SmallInputField {...args} />;
 Light.args = {
     theme: 'light',
-    style: 'default',
     state: 'default'
 };
 
-export const Disabled: Story = (args: InputProps) => <SmallInputField {...args} />;
+export const Disabled: Story = (args: SmallInputProps) => <SmallInputField {...args} />;
 Disabled.args = {
     theme: 'light',
-    style: 'default',
     state: 'disabled'
 };
 
-export const Error: Story = (args: InputProps) => <SmallInputField {...args} />;
+export const Error: Story = (args: SmallInputProps) => <SmallInputField {...args} />;
 Error.args = {
     theme: 'light',
-    style: 'default',
     state: 'error'
 };
 
-export const Dark: Story = (args: InputProps) => <SmallInputField {...args} />;
+export const Dark: Story = (args: SmallInputProps) => <SmallInputField {...args} />;
 Dark.args = {
     theme: 'dark',
-    style: 'default',
     state: 'default'
 };
 
-export const DisabledDark: Story = (args: InputProps) => <SmallInputField {...args} />;
+export const DisabledDark: Story = (args: SmallInputProps) => <SmallInputField {...args} />;
 DisabledDark.args = {
     theme: 'dark',
-    style: 'default',
     state: 'disabled'
 };
 
-export const ErrorDark: Story = (args: InputProps) => <SmallInputField {...args} />;
+export const ErrorDark: Story = (args: SmallInputProps) => <SmallInputField {...args} />;
 ErrorDark.args = {
     theme: 'dark',
-    style: 'default',
     state: 'error'
 };
