@@ -1,4 +1,4 @@
-export type InputProps = {
+export type StyledInputProps = {
     placeholder?: string
 
     theme?: "light" | "dark";
@@ -10,7 +10,7 @@ export type InputProps = {
     onClick?: () => void;
 }
 
-export type SmallInputProps = {
+export type InputProps = {
     placeholder?: string
 
     theme?: "light" | "dark";

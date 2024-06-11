@@ -1,17 +1,38 @@
 import { globalStyles } from "@/index.styled";
-import { darkTheme, InputFieldWrapper, InputFieldContainer, SmallInputFieldContainer, ErrorMessage, EyeIconContainer, UserIconContainer } from "./Input.styled";
-import { type InputProps, SmallInputProps } from "./Input.types";
+import { darkTheme, InputFieldWrapper, InputFieldContainer, SmallInputFieldContainer, LargeInputFieldContainer, ErrorMessage, EyeIconContainer, UserIconContainer } from "./Input.styled";
+import { type StyledInputProps, InputProps } from "./Input.types";
 import { useState } from "react";
+
+// eye-on icons
 import eyeOpen from '/root/Downloads/ui-components/apps/storybook/src/assets/icons/eye-on.svg';
+import eyeOpenErrorLight from '/root/Downloads/ui-components/apps/storybook/src/assets/icons/eye-on-error-light.svg';
+import eyeOpenErrorDark from '/root/Downloads/ui-components/apps/storybook/src/assets/icons/eye-on-error-dark.svg';
+
+// eye-closed icons
 import eyeClosed from '/root/Downloads/ui-components/apps/storybook/src/assets/icons/eye-off.svg';
+import eyeClosedErrorLight from '/root/Downloads/ui-components/apps/storybook/src/assets/icons/eye-off-error-light.svg';
+import eyeClosedErrorDark from '/root/Downloads/ui-components/apps/storybook/src/assets/icons/eye-off-error-dark.svg';
+
 import userIcon from '/root/Downloads/ui-components/apps/storybook/src/assets/icons/user.svg';
 
-export const InputField = ({ theme, style, state, onClick }: InputProps) => {
+export const InputField = ({ theme, style, state, onClick }: StyledInputProps) => {
 
     globalStyles();
 
     const [isFocused, setIsFocused] = useState(false);
     const [PasswordHidden, setPasswordHidden] = useState(false);
+    const [eyeState, setEyeState] = useState("default")
+
+    // set eye-open icon depending on input field props
+    const errorEyeOpenIcon = theme === "light" ? eyeOpenErrorLight : eyeOpenErrorDark;
+    var eyeOpenIcon = state === "error" ? errorEyeOpenIcon : eyeOpen;
+
+    // set eye-closed icon depending on input field props
+    const errorEyeClosedIcon = theme === "light" ? eyeClosedErrorLight : eyeClosedErrorDark;
+    var eyeClosedIcon = state === "error" ? errorEyeClosedIcon : eyeClosed;
+
+    // revert eye icon back to default state when clicking/focusing on input field
+    //
 
     const handleToggleVisibility = () => {
         setPasswordHidden(!PasswordHidden);
@@ -20,8 +41,18 @@ export const InputField = ({ theme, style, state, onClick }: InputProps) => {
     return (
         <InputFieldWrapper>
             <InputFieldContainer
-                onFocus={() => setIsFocused(true)}
-                onBlur={() => setIsFocused(false)}
+                onFocus={() => {
+                    setIsFocused(true);
+                }}
+
+                onClick={() => {
+                    state === "disabled" ? () => {} : onClick
+                }}
+
+                onBlur={() => {
+                    setIsFocused(false)
+                    setEyeState("default")
+                }}
 
                 placeholder="Enter some text"
                 className={theme === "dark" ? darkTheme : ''} 
@@ -29,12 +60,11 @@ export const InputField = ({ theme, style, state, onClick }: InputProps) => {
                 style={style}
                 type={PasswordHidden ? "password" : "text"}
 
-                onClick={state === "disabled" ? () => {} : onClick}
                 disabled={state === "disabled"}
             />
             { style === 'password' && 
                 <EyeIconContainer onClick={handleToggleVisibility}>
-                    <img src={PasswordHidden ? eyeClosed : eyeOpen} alt="Toggle visibility" />
+                    <img src={PasswordHidden ? eyeClosedIcon : eyeOpenIcon} alt="Toggle visibility" />
                 </EyeIconContainer>
             }
             { style === 'icon' &&
@@ -47,7 +77,7 @@ export const InputField = ({ theme, style, state, onClick }: InputProps) => {
     )
 }
 
-export const SmallInputField = ({ theme, state, onClick }: SmallInputProps) => {
+export const SmallInputField = ({ theme, state, onClick }: InputProps) => {
 
     globalStyles();
 
@@ -56,6 +86,30 @@ export const SmallInputField = ({ theme, state, onClick }: SmallInputProps) => {
     return (
         <InputFieldWrapper>
             <SmallInputFieldContainer
+                onFocus={() => setIsFocused(true)}
+                onBlur={() => setIsFocused(false)}
+
+                placeholder="Enter some text"
+                className={theme === "dark" ? darkTheme : ''} 
+                state={state}
+
+                onClick={state === "disabled" ? () => {} : onClick}
+                disabled={state === "disabled"}
+            />
+            {state === "error" && !isFocused && <ErrorMessage>Please try again!</ErrorMessage>}
+        </InputFieldWrapper>
+    )  
+}
+
+export const LargeInputField = ({ theme, state, onClick }: InputProps) => {
+
+    globalStyles();
+
+    const [isFocused, setIsFocused] = useState(false);
+
+    return (
+        <InputFieldWrapper>
+            <LargeInputFieldContainer
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setIsFocused(false)}
 

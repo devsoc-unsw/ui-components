@@ -38,7 +38,61 @@ export const InputFieldWrapper = styled('div', {
     justifyContent: 'flex-start',
 });
 
-export const InputFieldContainer = styled('input', {
+export const SmallInputFieldContainer = styled('input', {
+    position: 'relative',
+    fontSize: 16,
+    borderRadius: 4,
+    backgroundColor: '$background',
+    border: '1.5px solid $border',
+    padding: '0px 15px',
+    height: 30,
+    width: '100%',
+    gap: 6,
+    color: '$filledText',
+    cursor: 'pointer',
+
+    '&:active': {
+        borderColor: '$focusedBorder',
+    },
+
+    '&::placeholder': {
+        color: '$unfilledText',
+    },
+
+    variants: {
+        state: {
+            default: {},
+            disabled: {
+                cursor: 'not-allowed',
+                pointerEvents: 'none',
+                backgroundColor: '$disabledBackground',
+                '&::placeholder': {
+                    color: '$disabledText',
+                },
+            },
+            error: {
+                color: '$error',
+                cursor: 'pointer',
+                borderColor: '$error',
+                '&:focus, &:focus-within': {
+                    color: '$filledText',
+                    '&::placeholder': {
+                        color: '$unfilledText',
+                    },
+                },
+                '&::placeholder': {
+                    color: '$error',
+                },
+            },
+        },
+    },
+
+    defaultVariants: {
+        state: 'default',
+    },
+});
+
+export const InputFieldContainer = styled(SmallInputFieldContainer, {
     position: 'relative',
     fontSize: 16,
     borderRadius: 4,
@@ -100,58 +154,12 @@ export const InputFieldContainer = styled('input', {
     },
 });
 
-export const SmallInputFieldContainer = styled('input', {
-    position: 'relative',
-    fontSize: 16,
-    borderRadius: 4,
-    backgroundColor: '$background',
-    border: '1.5px solid $border',
-    padding: '0px 15px',
-    height: 30,
-    width: '100%',
-    gap: 6,
-    color: '$filledText',
-    cursor: 'pointer',
-
-    '&:active': {
-        borderColor: '$focusedBorder',
-    },
-
+export const LargeInputFieldContainer = styled(SmallInputFieldContainer, {
+    height: 150,
+    width: 354,
     '&::placeholder': {
-        color: '$unfilledText',
-    },
 
-    variants: {
-        state: {
-            default: {},
-            disabled: {
-                cursor: 'not-allowed',
-                pointerEvents: 'none',
-                backgroundColor: '$disabledBackground',
-                '&::placeholder': {
-                    color: '$disabledText',
-                },
-            },
-            error: {
-                color: '$error',
-                cursor: 'pointer',
-                borderColor: '$error',
-                '&:focus, &:focus-within': {
-                    color: '$filledText',
-                    '&::placeholder': {
-                        color: '$unfilledText',
-                    },
-                },
-                '&::placeholder': {
-                    color: '$error',
-                },
-            },
-        },
-    },
-
-    defaultVariants: {
-        state: 'default',
-    },
+    }
 });
 
 export const ErrorMessage = styled('div', {

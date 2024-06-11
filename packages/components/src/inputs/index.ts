@@ -1,5 +1,5 @@
-import { InputField, SmallInputField } from "./Input";
-import { type InputProps, SmallInputProps } from "./Input.types";
+import { InputField, SmallInputField, LargeInputField } from "./Input";
+import { type StyledInputProps, InputProps } from "./Input.types";
 
-export { InputField, type InputProps };
-export { SmallInputField, type SmallInputProps };
+export { InputField, type StyledInputProps };
+export { LargeInputField, SmallInputField, type InputProps };
