@@ -13,7 +13,9 @@ import eyeClosed from '/root/Downloads/ui-components/apps/storybook/src/assets/i
 import eyeClosedErrorLight from '/root/Downloads/ui-components/apps/storybook/src/assets/icons/eye-off-error-light.svg';
 import eyeClosedErrorDark from '/root/Downloads/ui-components/apps/storybook/src/assets/icons/eye-off-error-dark.svg';
 
-import userIcon from '/root/Downloads/ui-components/apps/storybook/src/assets/icons/user.svg';
+import user from '/root/Downloads/ui-components/apps/storybook/src/assets/icons/user.svg';
+import userErrorLight from '/root/Downloads/ui-components/apps/storybook/src/assets/icons/user-error-light.svg';
+import userErrorDark from '/root/Downloads/ui-components/apps/storybook/src/assets/icons/user-error-dark.svg';
 
 export const InputField = ({ theme, style, state, onClick }: StyledInputProps) => {
 
@@ -30,6 +32,10 @@ export const InputField = ({ theme, style, state, onClick }: StyledInputProps) =
     // set eye-closed icon depending on input field props
     const errorEyeClosedIcon = theme === "light" ? eyeClosedErrorLight : eyeClosedErrorDark;
     var eyeClosedIcon = state === "error" ? errorEyeClosedIcon : eyeClosed;
+
+    // set user icon depending on input field props
+    const errorUserIcon = theme === "light" ? userErrorLight : userErrorDark;
+    var userIcon = state === "error" ? errorUserIcon : user;
 
     // revert eye icon back to default state when clicking/focusing on input field
     //
