@@ -123,11 +123,14 @@ export const DropdownChildren = styled('div', {
   marginTop:'0.5em',
   borderRadius: '4px',
   justifyContent: 'space-between',
-  padding: '0.2em 1em',
+  // padding: '0.2em 1em',
   boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.25)',
 });
 
 export const DropdownItem = styled('div', {
   backgroundColor: '$dropdownPrimaryBackground',
-  padding: '0.5em 0',
+  margin: '0em 0',
+  padding: '0.5em 1em',
+  cursor: 'pointer',
+  width: '100%',
 });
