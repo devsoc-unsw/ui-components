@@ -5,7 +5,7 @@ export type DropdownProps = {
 
   theme?: "light" | "dark";
 
-  showingOptions?: boolean;
+  expand?: boolean;
 
   disabled?: boolean;
 

@@ -5,26 +5,38 @@ import { globalStyles } from "@/index.styled";
 import { DropdownContainer, DropdownLabel, DropdownChildren, DropdownItem, darkTheme } from "@/dropdown/Dropdown.styled"; 
 import chevronDown from "@/assets/chevron-down.svg"
 
-export const Dropdown = ({
-        label = "Select...", 
-        theme, 
-        showingOptions: initialShowingOptions, 
-        disabled, 
-        error, 
-        children}: DropdownProps) => {
+// Assuming DropdownProps is in Dropdown.types.ts
+export type DropdownProps = {
+  label?: string;
+  theme?: string;
+  expand?: boolean; 
+  disabled?: boolean;
+  error?: boolean;
+  children?: ReactNode;
+};
 
+// In Dropdown.tsx
+export const Dropdown = ({
+    label = "Select...",
+    theme,
+    expand: initialExpand = false, 
+    disabled,
+    error,
+    children
+    }: DropdownProps) => {
     globalStyles();
 
-    const [showingOptions, setShowingOptions] = useState(initialShowingOptions);
+    const [expand, setExpand] = useState(initialExpand); // renamed from showingOptions
     const [selectedOption, setSelectedOption] = useState('');
 
     const toggleDropdownOptions = () => {
-        if(disabled) {
-            setShowingOptions(false);
-            return;
-        };
-        setShowingOptions(!showingOptions);
+    if (disabled) {
+        setExpand(false);
+        return;
     }
+    setExpand(!expand);
+    }
+
 
     const handleDropdownKeyDown = (event: React.KeyboardEvent) => {
         if (event.key === 'Enter' || event.key === ' ') {
@@ -34,7 +46,7 @@ export const Dropdown = ({
 
     const handleOptionClick = (option: string) => {
         setSelectedOption(option);
-        setShowingOptions(false);
+        setExpand(false);
         console.log(`Selected option: ${option}`);
     }
 
@@ -59,12 +71,12 @@ export const Dropdown = ({
                 disabled={disabled}
                 error={error}
             >
-                <label>{selectedOption || label}</label>
+                <label className='dropdown-label-text'>{selectedOption || label}</label>
                 <img src={chevronDown} className='chevron-down'/>
             </DropdownLabel>
 
             <div className='dropdown-error-msg'>Please select an option.</div>
-            {showingOptions && 
+            {expand && 
                 <DropdownChildren>
                     {React.Children.map(children, (child: ReactNode, index: number) => (
                         <DropdownItem 

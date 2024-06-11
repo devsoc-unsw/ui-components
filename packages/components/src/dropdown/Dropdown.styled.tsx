@@ -100,6 +100,14 @@ export const DropdownLabel = styled('div', {
     fill: '$dropdownPrimaryText',
     opacity: '0.8',
   },
+
+  '.dropdown-label-text': {
+    width: '4em',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+    flex: 1,
+  }
 }
 );
 
