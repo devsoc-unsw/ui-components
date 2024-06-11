@@ -23,7 +23,6 @@ export const InputField = ({ theme, style, state, onClick }: StyledInputProps) =
 
     const [isFocused, setIsFocused] = useState(false);
     const [PasswordHidden, setPasswordHidden] = useState(false);
-    const [eyeState, setEyeState] = useState("default")
 
     // set eye-open icon depending on input field props
     const errorEyeOpenIcon = theme === "light" ? eyeOpenErrorLight : eyeOpenErrorDark;
@@ -32,6 +31,9 @@ export const InputField = ({ theme, style, state, onClick }: StyledInputProps) =
     // set eye-closed icon depending on input field props
     const errorEyeClosedIcon = theme === "light" ? eyeClosedErrorLight : eyeClosedErrorDark;
     var eyeClosedIcon = state === "error" ? errorEyeClosedIcon : eyeClosed;
+
+    const [eyeClosedState, setEyeClosedState] = useState(eyeClosedIcon || eyeClosed);
+    const [eyeOpenState, setEyeOpenState] = useState(eyeOpenIcon || eyeOpen);
 
     // set user icon depending on input field props
     const errorUserIcon = theme === "light" ? userErrorLight : userErrorDark;
@@ -49,28 +51,33 @@ export const InputField = ({ theme, style, state, onClick }: StyledInputProps) =
             <InputFieldContainer
                 onFocus={() => {
                     setIsFocused(true);
+                    // setEyeClosedState(eyeClosed);
+                    // setEyeOpenState(eyeOpen);
                 }}
 
                 onClick={() => {
-                    state === "disabled" ? () => {} : onClick
+                    state === "disabled" ? () => {} : onClick;
+                    setEyeClosedState(eyeClosed);
+                    setEyeOpenState(eyeOpen);
                 }}
 
                 onBlur={() => {
-                    setIsFocused(false)
-                    setEyeState("default")
+                    setIsFocused(false);
+                    setEyeClosedState(eyeClosedIcon);
+                    setEyeOpenState(eyeOpenIcon);
                 }}
 
                 placeholder="Enter some text"
                 className={theme === "dark" ? darkTheme : ''} 
                 state={state}
                 style={style}
-                type={PasswordHidden ? "password" : "text"}
+                type={style === 'password' && PasswordHidden ? "password" : "text"}
 
                 disabled={state === "disabled"}
             />
             { style === 'password' && 
                 <EyeIconContainer onClick={handleToggleVisibility}>
-                    <img src={PasswordHidden ? eyeClosedIcon : eyeOpenIcon} alt="Toggle visibility" />
+                    <img src={PasswordHidden ? eyeClosedState : eyeOpenState} alt="Toggle visibility" />
                 </EyeIconContainer>
             }
             { style === 'icon' &&

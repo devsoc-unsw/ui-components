@@ -157,8 +157,9 @@ export const InputFieldContainer = styled(SmallInputFieldContainer, {
 export const LargeInputFieldContainer = styled(SmallInputFieldContainer, {
     height: 150,
     width: 354,
+    justifyContent: 'flex-start',
     '&::placeholder': {
-
+        bottom: 500,
     }
 });
 
