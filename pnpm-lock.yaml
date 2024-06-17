@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      pnpm:
+        specifier: ^9.3.0
+        version: 9.3.0
     devDependencies:
       turbo:
         specifier: 1.6.3
@@ -90,6 +94,9 @@ importers:
 
   packages/components:
     dependencies:
+      lucide:
+        specifier: ^0.394.0
+        version: 0.394.0
       react:
         specifier: '>=18.x'
         version: 18.3.1
@@ -3352,6 +3359,9 @@ packages:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
 
+  lucide@0.394.0:
+    resolution: {integrity: sha512-7nylApx46INfMFY8jsLetyoxnDJh+AXnemBOddEI96o9hopEZD8VCcqc+s+wwIOaJWhepwzZKidNIOIxGsH6Tw==}
+
   lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
     hasBin: true
@@ -3732,6 +3742,11 @@ packages:
   pkg-dir@7.0.0:
     resolution: {integrity: sha512-Ie9z/WINcxxLp27BKOCHGde4ITq9UklYKDzVo1nhk5sqGEXU3FpkwP5GM2voTGJkGd9B3Otl+Q4uwSOeSUtOBA==}
     engines: {node: '>=14.16'}
+
+  pnpm@9.3.0:
+    resolution: {integrity: sha512-7nuT4MK9EUCcZCT5K4ZvMdPqG+9fvkfTx1AM3DyWaIM9LlVoGtZt9bZAxh+p3CXVRu+lTXbX+L9UsTYUrCk2MQ==}
+    engines: {node: '>=18.12'}
+    hasBin: true
 
   polished@4.2.2:
     resolution: {integrity: sha512-Sz2Lkdxz6F2Pgnpi9U5Ng/WdWAUZxmHrNPoVlm3aAemxoy2Qy7LGjQg4uf8qKelDAUW94F4np3iH2YPf2qefcQ==}
@@ -6737,11 +6752,11 @@ snapshots:
   '@types/eslint-scope@3.7.7':
     dependencies:
       '@types/eslint': 8.56.10
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.5
 
   '@types/eslint@8.56.10':
     dependencies:
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.5
       '@types/json-schema': 7.0.15
 
   '@types/eslint@8.56.2':
@@ -8655,6 +8670,8 @@ snapshots:
     dependencies:
       yallist: 4.0.0
 
+  lucide@0.394.0: {}
+
   lz-string@1.5.0: {}
 
   magic-string@0.27.0:
@@ -8986,6 +9003,8 @@ snapshots:
   pkg-dir@7.0.0:
     dependencies:
       find-up: 6.3.0
+
+  pnpm@9.3.0: {}
 
   polished@4.2.2:
     dependencies:
