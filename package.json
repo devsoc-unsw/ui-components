@@ -8,6 +8,7 @@
     "turbo": "1.6.3"
   },
   "dependencies": {
+    "lucide-react": "^0.395.0",
     "pnpm": "^9.3.0"
   }
 }

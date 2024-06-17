@@ -3,8 +3,7 @@ import React from 'react';
 import { type DropdownProps } from './Dropdown.types';
 import { globalStyles } from "@/index.styled";
 import { DropdownContainer, DropdownLabel, DropdownChildren, DropdownItem, darkTheme } from "@/dropdown/Dropdown.styled"; 
-import chevronDown from "@/assets/chevron-down.svg"
-import { ChevronDown } from 'lucide';
+import { ChevronDown } from 'lucide-react';
 
 export const Dropdown = ({
     placeholder = "Select...",
@@ -65,12 +64,11 @@ export const Dropdown = ({
                 disabled={disabled}
                 error={error}
             >
-                <label className='dropdown-label-text'>{selectedOption || placeholder}</label>
-                <img src={chevronDown} className='chevron-down'/>
+                 <label className='dropdown-label-text'>{selectedOption || placeholder}</label>
+                <ChevronDown className='chevron-down'/>
             </DropdownLabel>
 
             <div className='dropdown-error-msg'>Please select an option.</div>
-            {/* <ChevronDown /> */}
             {expand && 
                 <DropdownChildren>
                     {options.map((option, index) => ( 

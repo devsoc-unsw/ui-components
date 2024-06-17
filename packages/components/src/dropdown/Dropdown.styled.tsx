@@ -93,12 +93,8 @@ export const DropdownLabel = styled('div', {
   },
   
   '.chevron-down': {
-    height: '1em',
-    width: '1em',
-    marginLeft: '3em',
-    padding: '0',
-    fill: '$dropdownPrimaryText',
-    opacity: '0.8',
+    marginLeft: '2.5em',
+    color: '$dropdownPrimaryText',
   },
 
   '.dropdown-label-text': {
