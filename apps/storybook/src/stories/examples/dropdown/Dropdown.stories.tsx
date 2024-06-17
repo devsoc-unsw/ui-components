@@ -21,40 +21,44 @@ const tempChildren = [
 
 export const Default: Story = (args: DropdownProps) => <Dropdown {...args} />;
 Default.args = {
-  label: 'Select...',
+  placeholder: 'Select...',
   theme: 'light', 
   showingOptions: false, 
   disabled: false, 
   error: false, 
-  children: tempChildren, 
+  options: tempChildren, 
+  onSelect: (option: string) => console.log(`Dropdown select: ${option}`),
 };
 
 export const DefaultDark: Story = (args: DropdownProps) => <Dropdown {...args} />;
 DefaultDark.args = {
-  label: 'Select...',
+  placeholder: 'Select...',
   theme: 'dark', 
   showingOptions: false, 
   disabled: false, 
   error: false, 
-  children: tempChildren, 
+  options: tempChildren, 
+  onSelect: (option: string) => console.log(`Dropdown select: ${option}`),
 };
-
+    
 export const Disabled: Story = (args: DropdownProps) => <Dropdown {...args} />;
 Disabled.args = {
-  label: 'Disabled...',
+  placeholder: 'Disabled...',
   theme: 'light', 
   showingOptions: false, 
   disabled: true, 
   error: false, 
-  children: tempChildren, 
+  options: tempChildren, 
+  onSelect: (option: string) => console.log(`Dropdown select: ${option}`),
 };
 
 export const ErrorDropdown: Story = (args: DropdownProps) => <Dropdown {...args} />;
 ErrorDropdown.args = {
-  label: 'Select...',
+  placeholder: 'Select...',
   theme: 'light', 
   showingOptions: false, 
   disabled: false, 
   error: true, 
-  children: tempChildren, 
+  options: tempChildren, 
+  onSelect: (option: string) => console.log(`Dropdown select: ${option}`),
 };
