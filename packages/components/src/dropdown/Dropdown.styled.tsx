@@ -93,12 +93,12 @@ export const DropdownLabel = styled('div', {
   },
   
   '.chevron-down': {
-    marginLeft: '2.5em',
+    marginLeft: '1.5em',
     color: '$dropdownPrimaryText',
   },
 
   '.dropdown-label-text': {
-    width: '4em',
+    width: '5em',
     overflow: 'hidden',
     whiteSpace: 'nowrap',
     textOverflow: 'ellipsis',
@@ -113,7 +113,7 @@ export const DropdownChildren = styled('div', {
   minWidth: '10em',
   display: 'inline-block',
   position: 'absolute',
-  zIndex: '99',
+  zIndex: '1',
   border: '1px solid $dropdownPrimaryBorder',
   backgroundColor: '$dropdownPrimaryBackground',
   marginTop:'0.5em',
@@ -124,7 +124,7 @@ export const DropdownChildren = styled('div', {
 
 export const DropdownItem = styled('div', {
   backgroundColor: '$dropdownPrimaryBackground',
-  margin: '0em 0',
+  margin: '0.25em auto',
   padding: '0.5em 1em',
   cursor: 'pointer',
   width: '100%',
