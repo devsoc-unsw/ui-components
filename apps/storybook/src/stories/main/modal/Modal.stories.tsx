@@ -13,7 +13,7 @@ type Story = StoryObj<typeof Modal>;
 export const NoOption: Story = (args: ModalProps) => <Modal {...args} />;
 NoOption.args = {
   title: 'This is Modal with no option',
-  text: 'Here is the text section',
+  content: 'Here is the content section',
   theme: 'light',
   option: false,
   open: false,
@@ -23,7 +23,7 @@ NoOption.args = {
 export const NoOptionDark: Story = (args: ModalProps) => <Modal {...args} />;
 NoOptionDark.args = {
   title: 'This is Modal with no option',
-  text: 'Here is the text section',
+  content: 'Here is the content section',
   theme: 'dark',
   option: false,
   open: false,
@@ -33,7 +33,7 @@ NoOptionDark.args = {
 export const Option: Story = (args: ModalProps) => <Modal {...args} />
 Option.args = {
   title: 'This is Modal with an option',
-  text: 'Here is the text section',
+  content: 'Here is the content section',
   theme: 'light',
   option: true,
   open: true,
@@ -43,7 +43,7 @@ Option.args = {
 export const OptionDark: Story = (args: ModalProps) => <Modal {...args} />
 OptionDark.args = {
   title: 'This is Modal with an option',
-  text: 'Here is the text section',
+  content: 'Here is the content section',
   theme: 'dark',
   option: true,
   open: true,
