@@ -1,3 +1,5 @@
+import { ReactElement } from "react";
+
 export type ModalProps = {
   /**
    * Title contents
@@ -6,7 +8,7 @@ export type ModalProps = {
   /**
    * Text contents
    */
-  text: string;
+  content: ReactElement;
   /**
    * Is this modal in light or dark mode?
    */
@@ -19,4 +21,8 @@ export type ModalProps = {
    * Is this modal open?
    */
   open: boolean;
+  /**
+   * The content of the button that opens the modal
+   */
+  buttonContent: string;
 }

@@ -16,6 +16,8 @@ NoOption.args = {
   text: 'Here is the text section',
   theme: 'light',
   option: false,
+  open: false,
+  buttonContent: 'Open Modal',
 };
 
 export const NoOptionDark: Story = (args: ModalProps) => <Modal {...args} />;
@@ -24,6 +26,8 @@ NoOptionDark.args = {
   text: 'Here is the text section',
   theme: 'dark',
   option: false,
+  open: false,
+  buttonContent: 'Open Modal',
 };
 
 export const Option: Story = (args: ModalProps) => <Modal {...args} />
@@ -32,6 +36,8 @@ Option.args = {
   text: 'Here is the text section',
   theme: 'light',
   option: true,
+  open: true,
+  buttonContent: 'Open Modal',
 };
 
 export const OptionDark: Story = (args: ModalProps) => <Modal {...args} />
@@ -40,4 +46,6 @@ OptionDark.args = {
   text: 'Here is the text section',
   theme: 'dark',
   option: true,
+  open: true,
+  buttonContent: 'Open Modal',
 };

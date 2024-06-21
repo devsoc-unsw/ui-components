@@ -20,7 +20,7 @@ export const darkTheme = createTheme({
   },
 });
 
-export const ModalContainer = styled('div', {
+export const ModalContainer = styled('dialog', {
   variants: {
     option: {
       true: {
@@ -52,6 +52,7 @@ export const ModalContainer = styled('div', {
   backgroundColor: '$backgroundColor',
   width: 450,
   borderRadius: 8,
+  borderWidth: 0,
 })
 
 export const HeaderWrapper = styled('div', {

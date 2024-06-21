@@ -6,8 +6,5 @@
   },
   "devDependencies": {
     "turbo": "1.6.3"
-  },
-  "dependencies": {
-    "@stitches/react": "^1.2.8"
   }
 }
