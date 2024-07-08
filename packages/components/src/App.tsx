@@ -3,9 +3,19 @@ import './App.css';
 import { useState } from 'react';
 
 import reactLogo from './assets/react.svg';
+import { Modal } from './modal';
 
 function App() {
   const [count, setCount] = useState(0);
+
+  const args = {
+    title: 'This is Modal with no option',
+    content: 'Here is the content section',
+    theme: 'light',
+    option: false,
+    open: false,
+    buttonContent: 'Open Modal',
+  };
 
   return (
     <div className='App'>
@@ -24,6 +34,9 @@ function App() {
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
+      <Modal title={args.title} open={false} buttonContent='Open me!'>
+        <p>lol</p>
+      </Modal>
       <p className='read-the-docs'>Click on the Vite and React logos to learn more</p>
     </div>
   );

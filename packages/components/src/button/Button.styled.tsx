@@ -24,7 +24,7 @@ export const darkTheme = createTheme({
     disabled: '#323E4D',
     disabledText: '#9BA5B1',
     border: '#404F63',
-    subtleHovered: '#323E4D'
+    subtleHovered: '#323E4D',
   },
 });
 
@@ -45,7 +45,7 @@ export const ButtonContainer = styled('button', {
         color: '$text',
         borderRadius: 8,
         borderStyle: 'solid',
-        borderWidth: 1,  
+        borderWidth: 1,
         backgroundColor: 'transparent',
         borderColor: '$border',
         cursor: 'pointer',
@@ -62,7 +62,7 @@ export const ButtonContainer = styled('button', {
         '&:hover': {
           backgroundColor: '$subtleHovered',
         },
-      }
+      },
     },
     disabled: {
       true: {
@@ -78,7 +78,7 @@ export const ButtonContainer = styled('button', {
     },
   },
 
-  // If a button is disabled, this takes priority over if its type is ghost or text 
+  // If a button is disabled, this takes priority over if its type is ghost or text
   compoundVariants: [
     {
       type: 'ghost',
@@ -107,7 +107,7 @@ export const ButtonContainer = styled('button', {
           backgroundColor: '$disabled',
         },
       },
-    }
+    },
   ],
 
   defaultVariants: {
@@ -125,19 +125,19 @@ export const ButtonContainer = styled('button', {
   paddingLeft: 12,
   paddingRight: 12,
   height: 44,
-  gap: 6
-})
+  gap: 6,
+});
 
 export const LabelWrapper = styled('div', {
   display: 'flex',
   flexDirection: 'row',
   alignContent: 'center',
-})
+});
 
 export const IconWrapper = styled('div', {
-  display:'flex',
+  display: 'flex',
   flexDirection: 'row',
   justifyContent: 'flex-start',
   alignContent: 'center',
-  width: 'min-content'
-})
+  width: 'min-content',
+});
