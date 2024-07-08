@@ -28,7 +28,7 @@ export const { styled } = createStitches({
       linkHovered: '#2953AE',
       // Animation colours
       animationLoadingPrimary: '#6C798B',
-      animationLoadingSecondary:'#EDEEF1',
+      animationLoadingSecondary: '#EDEEF1',
     },
 
     fontSizes: {
@@ -53,7 +53,7 @@ export const { styled } = createStitches({
       captionLarge: '13.33px',
       captionSmall: '12px',
       // Footer
-      footer: '12px'
+      footer: '12px',
     },
 
     fontWeights: {
@@ -64,7 +64,7 @@ export const { styled } = createStitches({
       // Body, caption and footer
       medium: '500',
       regular: '400',
-    }
+    },
   },
 });
 
@@ -90,7 +90,7 @@ export const darkTheme = createTheme({
     link: '#5193F5',
     // Animation colours
     animationLoadingPrimary: '#9BA5B1',
-    animationLoadingSecondary: '#323E4D'
+    animationLoadingSecondary: '#323E4D',
   },
 });
 
@@ -100,7 +100,7 @@ export const globalStyles = globalCss({
     fontStyle: 'normal',
     fontFamily: 'TT Commons Pro Variable',
     fontDisplay: 'optional',
-    src: "url('apps/storybook/src/assets/fonts/TT_Commons_Pro_Variable.woff2') format('woff2')",
+    src: 'url("apps/storybook/src/assets/fonts/TT_Commons_Pro_Variable.woff2") format("woff2")',
   },
   html: {
     fontFamily: '$display',

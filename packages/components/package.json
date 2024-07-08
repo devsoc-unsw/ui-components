@@ -29,5 +29,9 @@
     "vite-plugin-dts": "3.9.1",
     "vite-plugin-linter": "2.1.1",
     "vite-tsconfig-paths": "4.3.2"
+  },
+  "dependencies": {
+    "@stitches/react": "^1.2.8",
+    "lucide-react": "^0.396.0"
   }
 }
