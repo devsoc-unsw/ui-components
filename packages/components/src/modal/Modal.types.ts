@@ -8,7 +8,7 @@ export type ModalProps = {
   /**
    * Text contents
    */
-  content: ReactElement;
+  children: ReactElement;
   /**
    * Is this modal in light or dark mode?
    */

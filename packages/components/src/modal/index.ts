@@ -1,4 +1,4 @@
-import { Modal } from "@/modal/Modal";
-import { type ModalProps } from "@/modal/Modal.types";
+import { Modal } from '@/modal/Modal';
+import { type ModalProps } from '@/modal/Modal.types';
 
-export { Modal, type ModalProps};
+export { Modal, type ModalProps };

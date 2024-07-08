@@ -32,16 +32,16 @@ export const ModalContainer = styled('dialog', {
         paddingTop: 20,
         paddingBottom: 20,
         gap: 15,
-      }
+      },
     },
     open: {
       true: {
-        display: 'flex'
+        display: 'flex',
       },
       false: {
-        display: 'none'
-      }
-    }
+        display: 'none',
+      },
+    },
   },
 
   flexDirection: 'column',
@@ -53,7 +53,7 @@ export const ModalContainer = styled('dialog', {
   width: 450,
   borderRadius: 8,
   borderWidth: 0,
-})
+});
 
 export const HeaderWrapper = styled('div', {
   display: 'flex',
@@ -62,17 +62,17 @@ export const HeaderWrapper = styled('div', {
   alignItems: 'center',
   fontWeight: 'bold',
   fontSize: '1.2rem',
-  color: '$titleText'
-})
+  color: '$titleText',
+});
 
 export const BodyWrapper = styled('div', {
   fontSize: '1rem',
-  color: '$contentText'
-})
+  color: '$contentText',
+});
 
 export const ButtonsWrapper = styled('div', {
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'flex-end',
-  gap: 20
-}) 
+  gap: 20,
+});
