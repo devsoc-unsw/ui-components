@@ -31,6 +31,7 @@
     "vite-tsconfig-paths": "4.3.2"
   },
   "dependencies": {
-    "lucide": "^0.394.0"
+    "@stitches/react": "^1.2.8",
+    "lucide-react": "^0.396.0"
   }
 }

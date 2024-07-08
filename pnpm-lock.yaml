@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      lucide-react:
+        specifier: ^0.395.0
+        version: 0.395.0(react@18.3.1)
       pnpm:
         specifier: ^9.3.0
         version: 9.3.0
@@ -94,9 +97,12 @@ importers:
 
   packages/components:
     dependencies:
-      lucide:
-        specifier: ^0.394.0
-        version: 0.394.0
+      '@stitches/react':
+        specifier: ^1.2.8
+        version: 1.2.8(react@18.3.1)
+      lucide-react:
+        specifier: ^0.396.0
+        version: 0.396.0(react@18.3.1)
       react:
         specifier: '>=18.x'
         version: 18.3.1
@@ -3359,8 +3365,15 @@ packages:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
 
-  lucide@0.394.0:
-    resolution: {integrity: sha512-7nylApx46INfMFY8jsLetyoxnDJh+AXnemBOddEI96o9hopEZD8VCcqc+s+wwIOaJWhepwzZKidNIOIxGsH6Tw==}
+  lucide-react@0.395.0:
+    resolution: {integrity: sha512-6hzdNH5723A4FLaYZWpK50iyZH8iS2Jq5zuPRRotOFkhu6kxxJiebVdJ72tCR5XkiIeYFOU5NUawFZOac+VeYw==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+
+  lucide-react@0.396.0:
+    resolution: {integrity: sha512-N/zP+9vEfEYHiMWMpjwH/M5diaV0e4UFe07BpgdzaRYce5QvXi87hixf7F0Xqdr3zuX/9u7H/2D4MVXIK22O0A==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
 
   lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
@@ -8670,7 +8683,13 @@ snapshots:
     dependencies:
       yallist: 4.0.0
 
-  lucide@0.394.0: {}
+  lucide-react@0.395.0(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+
+  lucide-react@0.396.0(react@18.3.1):
+    dependencies:
+      react: 18.3.1
 
   lz-string@1.5.0: {}
 

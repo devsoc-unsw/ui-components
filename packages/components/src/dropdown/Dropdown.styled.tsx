@@ -34,9 +34,11 @@ export const darkTheme = createTheme({
 export const DropdownContainer = styled('div', {
   cursor: 'pointer',
   width: 'auto',
-  fontFamily: "'Nunito Sans', 'Helvetica Neue', 'Inter', sans-serif",
+  fontFamily: '"Nunito Sans", "Helvetica Neue", "Inter", sans-serif',
   display: 'inline-block',
   color: '$dropdownPrimaryText',
+  position: 'relative',
+  textAlign: 'left',
 
   '.dropdown-error-msg': {
     display: 'none',
@@ -50,15 +52,15 @@ export const DropdownContainer = styled('div', {
           marginTop: '0.5em',
           color: '$dropdownErrorText',
           display: 'block',
-        }
-      }
+        },
+      },
     },
-  }
+  },
 });
 
 // Label Style
 export const DropdownLabel = styled('div', {
-  display: 'flex', 
+  display: 'flex',
   flexDirection: 'row',
   border: '1px solid $dropdownPrimaryBorder',
   backgroundColor: '$dropdownPrimaryBackground',
@@ -71,13 +73,13 @@ export const DropdownLabel = styled('div', {
   '.dropdown-error-msg': {
     display: 'none',
   },
-  
+
   variants: {
     disabled: {
       true: {
         color: '$dropdownDisabledText',
         cursor: 'not-allowed',
-      }
+      },
     },
 
     error: {
@@ -87,11 +89,11 @@ export const DropdownLabel = styled('div', {
         cursor: 'pointer',
         '.dropdown-error-msg': {
           display: 'block',
-        }
-      }
-    }
+        },
+      },
+    },
   },
-  
+
   '.chevron-down': {
     marginLeft: '1.5em',
     color: '$dropdownPrimaryText',
@@ -103,9 +105,8 @@ export const DropdownLabel = styled('div', {
     whiteSpace: 'nowrap',
     textOverflow: 'ellipsis',
     flex: 1,
-  }
-}
-);
+  },
+});
 
 // Children container
 export const DropdownChildren = styled('div', {
@@ -114,9 +115,10 @@ export const DropdownChildren = styled('div', {
   display: 'inline-block',
   position: 'absolute',
   zIndex: '1',
+  left: '0',
   border: '1px solid $dropdownPrimaryBorder',
   backgroundColor: '$dropdownPrimaryBackground',
-  marginTop:'0.5em',
+  marginTop: '0.5em',
   borderRadius: '4px',
   justifyContent: 'space-between',
   boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.25)',

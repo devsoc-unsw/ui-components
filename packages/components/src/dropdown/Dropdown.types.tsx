@@ -1,9 +1,7 @@
-import { ReactElement } from "react";
-
 export type DropdownProps = {
   placeholder?: string;
 
-  theme?: "light" | "dark";
+  theme?: 'light' | 'dark';
 
   expand?: boolean;
 
@@ -11,8 +9,9 @@ export type DropdownProps = {
 
   error?: boolean;
 
-  options?: { value: string, label: string }[];
+  options?: { value: string; label: string }[];
+
+  selected?: string;
 
   onSelect?: (selectedOption: string) => void;
-}
-
+};
