@@ -22,7 +22,7 @@
     "@vitejs/plugin-react": "4.2.1",
     "eslint": "9.2.0",
     "eslint-config-custom": "workspace:*",
-    "prettier": "3.2.5",
+    "prettier": "3.3.3",
     "tsconfig": "workspace:*",
     "typescript": "5.4.5",
     "vite": "5.2.11",
