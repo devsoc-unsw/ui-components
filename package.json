@@ -5,7 +5,7 @@
     "lint:fix": "turbo run lint:fix"
   },
   "devDependencies": {
-    "turbo": "1.6.3"
+    "turbo": "2.0.12"
   },
   "dependencies": {
     "lucide-react": "^0.395.0",
